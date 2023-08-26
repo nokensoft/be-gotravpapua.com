@@ -16,11 +16,6 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             RoleSeeder::class,
             UsersSeeder::class,
-            ProvincesSeeder::class,
-            ProgramSeeder::class,
-            StudentsSeeder::class,
-            DocumentsSeeder::class,
-            EducationSeeder::class,
         ]);
     }
 }

@@ -91,8 +91,19 @@
                                     </a>
                                 </li>
                                 <!-- menu item end -->
+
+                                <li class="@if(Request::segment(1) == 'sliders') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/sliders') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ '0' }}
+                                        </span>
+                                        <span> Slider</span>
+                                    </a>
+                                </li>
+                                <!-- menu item end -->
                                 
-                                <li class="menu-title mt-2">Settings</li>
+                                <li class="menu-title mt-2">Administrator</li>
 
                                 <li class="@if(Request::segment(1) == 'users') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/users') }}">
@@ -101,6 +112,17 @@
                                             {{ '0' }}
                                         </span>
                                         <span> Users </span>
+                                    </a>
+                                </li>
+                                <!-- menu item end -->
+
+                                <li class="@if(Request::segment(1) == 'settings') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/settings') }}">
+                                        <i class="fa-solid fa-gear"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ '0' }}
+                                        </span>
+                                        <span> Settings </span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
