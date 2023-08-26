@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
     */
     Route::group(['middleware' => ['role:administrator']], function () { 
     
-        Route::controller(packagesController::class)->group(function(){
+        Route::controller(PackagesController::class)->group(function(){
 
             // index
             Route::get('packages','index')->name('dashboard.packages');

@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Program;
+use App\Models\packages;
 use Illuminate\Http\Request;
 
-class ProgramController extends Controller
+class PackagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,41 +16,22 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $datas = Program::where([
-            ['program_title', '!=', Null],
-            [function ($query) {
-                if (($s = request()->s)) {
-                    $query->orWhere('program_title', 'LIKE', '%' . $s . '%')
-                        ->orWhere('short_description', 'LIKE', '%' . $s . '%')
-                        ->get();
-                }
-            }]
-        ])->where('status', 'Publish')->latest()->paginate(5);
-        $jumlahtrash = Program::onlyTrashed()->count();
-        $jumlahdraft = Program::where('status', 'Draft')->count();
-        $datapublish = Program::where('status', 'Publish')->count();
-
-        return view('dasbor.program.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
-
+        //
+        return view('dashboard.packages.index');
     }
 
-    public function draft() {
-        $datas = Program::where([
-            ['program_title', '!=', Null],
-            [function ($query) {
-                if (($s = request()->s)) {
-                    $query->orWhere('program_title', 'LIKE', '%' . $s . '%')
-                        ->orWhere('short_description', 'LIKE', '%' . $s . '%')
-                        ->get();
-                }
-            }]
-        ])->where('status', 'Draft')->latest()->paginate(5);
-        $jumlahtrash = Program::onlyTrashed()->count();
-        $jumlahdraft = Program::where('status', 'Draft')->count();
-        $datapublish = Program::where('status', 'Publish')->count();
+    // DRAFT
+    public function draft()
+    {
+        //
+        return view('dashboard.packages.draft');
+    }
 
-        return view('dasbor.program.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
-
+    // TRASH
+    public function trash()
+    {
+        //
+        return view('dashboard.packages.trash');
     }
 
     /**
@@ -60,7 +41,8 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        return view('dasbor.program.create');
+        //
+        echo 'CREATE';
     }
 
     /**
@@ -71,139 +53,56 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        // membuat validasi
-        $request->validate([
-            'program_title' => 'required',
-        ],
-        [
-            'program_title.required' => 'Bagian ini wajib dilengkapi',
-        ]);
-
-        $data = new Program();
-
-        // buat variabel baru
-        $data->program_title = $request->program_title;
-        $data->short_description = $request->short_description;
-        $data->full_description = $request->full_description;
-        
-        $data->start_date = $request->start_date;
-        $data->end_date = $request->end_date;
-        
-        $data->status = $request->status;
-
-        // proses simpan
-        $data->save(); 
-
-        // menampilkan notifikasi alert
-        alert()->success('Berhasil', 'Data telah ditambahkan')->autoclose(1100);   
-        
-        // mengalihkan halaman
-        return redirect('dasbor/program/edit/' . Program::find($data->id)->id);
-        
+        //
+        echo 'STORE';
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(packages $packages)
     {
-        $data = Program::where('id', $id)->first();
-        return view('dasbor.program.show', compact('data'));
+        //
+        echo 'SHOW';
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(packages $packages)
     {
-        $data = Program::where('id', $id)->first();
-        return view('dasbor.program.edit', compact('data'));
+        //
+        echo 'EDIT';
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, packages $packages)
     {
-
-        $request->validate([
-            'program_title' => 'required',
-        ],
-        [
-            'program_title.required' => 'Bagian ini wajib dilengkapi',
-        ]);
-
-        $data = Program::find($id);
-
-        $data->program_title = $request->program_title;
-        $data->short_description = $request->short_description;
-        $data->full_description = $request->full_description;
-        
-        $data->start_date = $request->start_date;
-        $data->end_date = $request->end_date;
-        
-        // other
-        $data->status = $request->status;
-
-        $data->update();
-
-        alert()->success('Berhasil', 'Data telah diubah')->autoclose(1100);       
-        return redirect('dasbor/program/edit/' . Program::find($data->id)->id);
+        //
+        echo 'UPDATE';
     }
-
-    
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(packages $packages)
     {
-        $data = Program::find($id);
-        $data->delete();
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('dasbor.program');
+        //
+        echo 'DESTROY';
     }
-
-
-    public function trash()
-    {
-        $datas = Program::onlyTrashed()->paginate(5);
-        $jumlahtrash = Program::onlyTrashed()->count();
-        $jumlahdraft = Program::where('status', 'Draft')->count();
-        $datapublish = Program::where('status', 'Publish')->count();
-
-        return view('dasbor.program.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
-
-    }
-
-    public function restore($id){
-        $data = Program::onlyTrashed()->where('id',$id);
-        $data->restore();
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->back();
-    }
-
-    public function delete($id)
-    {
-        $data = Program::onlyTrashed()->where('id',$id);
-        $data->forceDelete();
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->back();
-    }
-
-
-
 }
