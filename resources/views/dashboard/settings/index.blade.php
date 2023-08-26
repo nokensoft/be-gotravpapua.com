@@ -32,9 +32,6 @@
                                                 <ul class="list-group mb-3">
                                                     <li class="list-group-item rounded-0">
                                                         <b class="d-block">Meta Tags</b>
-                                                        <code>
-                                                            {!! $data->meta_tags ?? '' !!}
-                                                        </code>
                                                         <textarea name="meta_tags" rows="15" class="form-control rounded-0 mb-1">{!! $data->meta_tags ?? '' !!}</textarea>
                                                     </li>
                                                 </ul>

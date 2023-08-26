@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
             Route::get('settings/edit/','edit')->name('dashboard.settings.edit');
 
             // update
-            Route::put('settings/{id}','update')->name('dashboard.settings.update');
+            Route::put('settings/update/','update')->name('dashboard.settings.update');
 
         });
     });

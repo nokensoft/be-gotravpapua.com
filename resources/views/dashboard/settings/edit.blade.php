@@ -11,7 +11,8 @@
                                         <p>This settings page lets you customize things. You can adjust how the website works to fit your needs.</p>
 
                                         <!-- FORM START -->
-                                        <form action="">
+                                        {!! Form::model($data, array( 'route'=>'dashboard.settings.update', 'method'=>'put','files'=>'true'))!!}
+                                        @csrf
 
                                             <div class="row">
                                                 <div class="col-lg-12">
@@ -88,14 +89,14 @@
                                                         </li>
                                                     </ul>
     
-                                                    <a href="{{ url('dashboard/settings/edit') }}" class="btn btn-success rounded-0">
+                                                    <button type="submit" class="btn btn-success rounded-0">
                                                         <i class="fa-solid fa-save"></i> Save
-                                                    </a>
+                                                    </button>
     
                                                 </div>
                                             </div>
 
-                                        </form>
+                                        {!! Form::close() !!}
                                         <!-- FORM END -->
 
                                     </div> <!-- end .caard-body-->
