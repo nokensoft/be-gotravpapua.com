@@ -64,11 +64,11 @@ class AppServiceProvider extends ServiceProvider
 
             // Settings
             'settings' => Settings::first(),
-            
+
             // // Totals
             // 'dashboard_total_packages' => Students::where('status','Publish')->count(),
             // 'dashboard_total_packages_draft' => Students::where('status','Draft')->count(),
-            // 'dashboard_total_packages_semua' => Students::count(),          
+            // 'dashboard_total_packages_semua' => Students::count(),
 
         ]);
 
