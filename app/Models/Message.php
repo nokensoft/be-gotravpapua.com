@@ -9,4 +9,5 @@ class Message extends Model
 {
     use HasFactory;
     public $guarded = [];
+    protected $table = 'messages';
 }
