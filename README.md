@@ -36,7 +36,7 @@
     ```
 
 -   _Adventure Detail_
--   _Method post_
+-   _Method get_
 -   _Endpoint_
 
     ```
