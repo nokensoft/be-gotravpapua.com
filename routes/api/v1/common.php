@@ -20,7 +20,7 @@ Route::prefix('v1')->middleware(['api'])->group(function () {
 
     // adventures
     Route::get('/adventures', [AdventuresController::class, 'index']);
-    Route::get('/adventures/{slug}/detail', [AdventuressController::class, 'show']);
+    Route::get('/adventures/{slug}/detail', [AdventuresController::class, 'show']);
 
     // events
     Route::get('/events', [EventsController::class, 'index']);

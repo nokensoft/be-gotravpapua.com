@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             RoleSeeder::class,
             UsersSeeder::class,
+            AdventursSeeder::class,
         ]);
     }
 }
