@@ -26,11 +26,15 @@ class MessagesController extends Controller
     {
         $validasi = Validator::make($request->all(), [
             'name'     => 'required',
-            'message'       => 'required'
+            'message'  => 'required'
         ]);
 
         if($validasi->fails()){
-            return response()->json( $validasi->errors() );
+            return response()->json([
+                'status' => false,
+                'message'=> $validasi->errors(),
+                'data' => null
+            ]);
         }else{
             $post   = new Message;
             $post->name    = $request->name;

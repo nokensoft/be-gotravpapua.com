@@ -12,10 +12,11 @@ class AdventuresController extends Controller
     public function index()
     {
 
-     $data = TourAdventur::join('users','tour_adventurs.user_id', '=' , 'users.id')->get();
+     $data = TourAdventur::with('user')->get();
+
         return response()->json([
             'status' => true,
-            'message' => 'List Data Tour Adventures',
+            'message' => 'Success',
             'data' => $data
         ]);
     }
@@ -23,11 +24,11 @@ class AdventuresController extends Controller
 
     public function show($id)
     {
-        $data = TourAdventur::join('users','tour_adventurs.user_id', '=' , 'users.id')->where('tour_adventurs.id', '=', $id)->first();
+        $data = TourAdventur::with('user')->first();
 
         return response()->json([
             'status' => true,
-            'message' => 'Detail Data Tour Adventure',
+            'message' => 'Success',
             'data' => $data
         ]);
     }
