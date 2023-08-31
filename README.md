@@ -2,12 +2,10 @@
 
 #### Messages
 
--   _Method post_
--   _Endpoint_
+-   _Method post :http://127.0.0.1:8000/api/v1/messages/store
+    
 
-    ```
-         http://127.0.0.1:8000/api/v1/messages/store
-    ```
+   
 
 -   _Request_
 
@@ -22,12 +20,8 @@
 #### Adventures
 
 -   _Adventures_
--   _Method get_
--   _Endpoint_
+-   _Method get_  http://127.0.0.1:8000/api/v1/adventures
 
-    ```
-         http://127.0.0.1:8000/api/v1/adventures
-    ```
 
 -   _result_
 
@@ -36,12 +30,7 @@
     ```
 
 -   _Adventure Detail_
--   _Method get_
--   _Endpoint_
-
-    ```
-         http://127.0.0.1:8000/api/v1/adventures/{id}/detail
-    ```
+-   _Method get_ http://127.0.0.1:8000/api/v1/adventures/{id}/detail
 
 -   _result_
 
