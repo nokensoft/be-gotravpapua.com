@@ -56,7 +56,7 @@
         {"status":true,"message":"Success","data":{"id":2,"title":"Lorem Ipsum","sub_title":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","link_satu_label":"Lorem ipsum dolor sit amet consectetur adipisicing elit.","link_satu_url":"Lorem ipsum dolor sit amet consectetur adipisicing elit.","link_dua_label":"Lorem ipsum dolor sit amet consectetur adipisicing elit","link_dua_url":"Lorem ipsum dolor sit amet consectetur adipisicing elit","created_at":"2023-09-01T08:42:38.000000Z","updated_at":"2023-09-01T08:42:38.000000Z","slug_slider":"lorem-lpsum-2"}}
     ```
 
--   _Adventure Detail_
+-   _Sliders Detail_
 -   _Method get_ http://127.0.0.1:8000/api/v1/sliders/{slug}/detail
 
 -   _result_
