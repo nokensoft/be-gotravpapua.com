@@ -5,21 +5,10 @@ use App\Http\Controllers\dashboard\PackagesController;
 
 use Illuminate\Support\Facades\Route;
 
-/*
+    /*
     |--------------------------------------------------------------------------
     | packages
     |
-    | index
-    | draft
-    | create
-    | store
-    | show
-    | edit
-    | update
-    | destroy
-    | trash
-    | restore
-    | delete
     |--------------------------------------------------------------------------
     */
     Route::group(['middleware' => ['role:administrator']], function () { 

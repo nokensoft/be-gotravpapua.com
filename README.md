@@ -2,10 +2,7 @@
 
 #### Messages
 
--   _Method post :http://127.0.0.1:8000/api/v1/messages/store
-    
-
-   
+-   \_Method post :http://127.0.0.1:8000/api/v1/messages/store
 
 -   _Request_
 
@@ -20,13 +17,12 @@
 #### Adventures
 
 -   _Adventures_
--   _Method get_  http://127.0.0.1:8000/api/v1/adventures
-
+-   _Method get_ http://127.0.0.1:8000/api/v1/adventures
 
 -   _result_
 
     ```
-        {"status":true,"message":"List Data Tour Adventures","data":[{"id":1,"title":"Kali Biru","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"00.jpg","status":"Publish","user_id":1,"created_at":"2023-08-31T03:52:25.000000Z","updated_at":"2023-08-31T03:52:25.000000Z","name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"password":"$2y$10$sMx52dVaqW3c6T6g3IO9LO6EhIsIQqaXqH3aCgPvhkqlQVot63.py","slug":"admin-gotrav","remember_token":null,"deleted_at":null}]}
+        {"status":true,"message":"Success","data":[{"id":1,"title":"Lorem Ipsum","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"","status":"Publish","user_id":1,"created_at":"2023-09-01T05:34:22.000000Z","updated_at":"2023-09-01T05:34:22.000000Z","slug_adventur":"lorem-lpsum-1","user":{"id":1,"name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"picture":"00.jpg","slug":"admin-gotrav","status":"Publish","deleted_at":null,"created_at":"2023-09-01T05:34:22.000000Z","updated_at":"2023-09-01T05:34:22.000000Z","slug_user":null}}]}
     ```
 
 -   _Adventure Detail_
@@ -35,7 +31,7 @@
 -   _result_
 
     ```
-        {"status":true,"message":"List Data Tour Adventure","data":[{"id":1,"title":"Kali Biru","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"00.jpg","status":"Publish","user_id":1,"created_at":"2023-08-31T03:52:25.000000Z","updated_at":"2023-08-31T03:52:25.000000Z","name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"password":"$2y$10$sMx52dVaqW3c6T6g3IO9LO6EhIsIQqaXqH3aCgPvhkqlQVot63.py","slug":"admin-gotrav","remember_token":null,"deleted_at":null}]}
+        {"status":true,"message":"Success","data":[{"id":1,"title":"Lorem Ipsum","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"","status":"Publish","user_id":1,"created_at":"2023-09-01T05:34:22.000000Z","updated_at":"2023-09-01T05:34:22.000000Z","slug_adventur":"lorem-lpsum-1","user":{"id":1,"name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"picture":"00.jpg","slug":"admin-gotrav","status":"Publish","deleted_at":null,"created_at":"2023-09-01T05:34:22.000000Z","updated_at":"2023-09-01T05:34:22.000000Z","slug_user":null}}]}
     ```
 
 ## Dev URLs

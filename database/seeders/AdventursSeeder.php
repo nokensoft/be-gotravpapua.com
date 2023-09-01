@@ -16,22 +16,24 @@ class AdventursSeeder extends Seeder
     public function run()
     {
         TourAdventur::create([
-            'title' => 'Kali Biru',
+            'title' => 'Lorem Ipsum',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
+            'slug_adventur' => 'lorem-lpsum-1'
          ]);
 
 
          TourAdventur::create([
-            'title' => 'Air terjun',
+            'title' => 'Lorem Ipsum',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
+            'slug_adventur' => 'lorem-lpsum-2'
          ]);
 
 
@@ -42,6 +44,7 @@ class AdventursSeeder extends Seeder
             'picture' => '' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
+            'slug_adventur' => 'lorem-lpsum-3'
          ]);
 
 

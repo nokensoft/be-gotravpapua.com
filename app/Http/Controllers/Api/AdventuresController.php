@@ -22,9 +22,9 @@ class AdventuresController extends Controller
     }
 
 
-    public function show($id)
+    public function show($slug)
     {
-        $data = TourAdventur::with('user')->first();
+        $data = TourAdventur::where('slug_adventur','=', $slug)->with('user')->first();
 
         return response()->json([
             'status' => true,
