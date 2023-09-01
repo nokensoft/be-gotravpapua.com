@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\DestinationsController;
 use App\Http\Controllers\Api\AdventuresController;
 use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\MessagesController;
+use App\Http\Controllers\Api\SlidersController;
 use App\Http\Controllers\Api\SettingsController;
 
 
