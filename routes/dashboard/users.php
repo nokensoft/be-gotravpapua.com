@@ -7,19 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
     |--------------------------------------------------------------------------
-    | PENGGUNA
-    |
-    | index
-    | draft
-    | create
-    | store
-    | show
-    | edit
-    | update
-    | destroy
-    | trash
-    | restore
-    | delete
+    | users
     |--------------------------------------------------------------------------
     */
     Route::group(['middleware' => ['role:administrator']], function () { 

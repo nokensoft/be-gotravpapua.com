@@ -17,8 +17,8 @@
     <meta name="twitter:image:alt" content="Cover {{ $settings->site_title ?? 'SAGU Foundation' }}">
 
     <!-- FAVICON -->
-    <link rel="apple-touch-icon" href="{{ asset('images/settings/' . $settings->favicon) }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/settings/' . $settings->favicon) }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 

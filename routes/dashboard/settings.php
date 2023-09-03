@@ -8,18 +8,6 @@ use Illuminate\Support\Facades\Route;
 /*
     |--------------------------------------------------------------------------
     | settings
-    |
-    | index
-    | draft
-    | create
-    | store
-    | show
-    | edit
-    | update
-    | destroy
-    | trash
-    | restore
-    | delete
     |--------------------------------------------------------------------------
     */
     Route::group(['middleware' => ['role:administrator']], function () { 
