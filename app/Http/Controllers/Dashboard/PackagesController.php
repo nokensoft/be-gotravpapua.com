@@ -4,105 +4,105 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\packages;
+use App\Models\TourPackages;
 use Illuminate\Http\Request;
 
 class PackagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    /*
+    |--------------------------------------------------------------------------
+    | packages
+    | index, draft, create, store, show, edit, update, destroy, trash, restore, delete
+    |--------------------------------------------------------------------------
+    */
+
+    // index
+
+    public function index(Request $request)
     {
-        //
-        return view('dashboard.packages.index');
+        
+        $datas = TourPackages::where([
+            ['title', '!=', Null],
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status', 'Publish')->latest('id')->paginate(5);
+
+        return view('dashboard.adventures.index',compact('datas')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // DRAFT
-    public function draft()
-    {
-        //
-        return view('dashboard.packages.draft');
+    // draft
+    public function draft(Request $request) {
+        // 
+        echo "adventure > draft";
+        return view ('dashboard.adventures.index');
     }
 
-    // TRASH
-    public function trash()
-    {
-        //
-        return view('dashboard.packages.trash');
+    // create
+    public function create() {
+        // 
+        echo "adventure > create";
+        return view ('dashboard.adventures.create');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        echo 'CREATE';
+    // store
+    public function store(Request $request) {
+        // 
+        echo "adventure > store";
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    // show
+
+    public function show($id)
     {
-        //
-        echo 'STORE';
+      $data = TourPackages::where('id', $id)->first();
+      return view('dashboard.adventures.show', compact('data'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\packages  $packages
-     * @return \Illuminate\Http\Response
-     */
-    public function show(packages $packages)
-    {
-        //
-        echo 'SHOW';
+    // edit
+    public function edit($id) {
+        $data = TourPackages::where('id', $id)->first();
+        return view('dashboard.adventures.edit', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\packages  $packages
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(packages $packages)
-    {
-        //
-        echo 'EDIT';
+    // update
+    public function update(Request $request, $id) {
+        // 
+        echo "adventure > update";
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\packages  $packages
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, packages $packages)
+    // destroy
+    public function destroy($id)
     {
-        //
-        echo 'UPDATE';
+        $data = TourPackages::find($id);
+        if ($data->delete()) {
+            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\packages  $packages
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(packages $packages)
-    {
-        //
-        echo 'DESTROY';
+    // trash
+    public function trash() {
+        // 
+        echo "adventure > trash";
+        return view ('dashboard.adventures.index');
     }
+
+    // restore
+    public function restore($id) {
+        // 
+        echo "adventure > restore";
+    }
+
+    // delete
+    public function delete($id) {
+        // 
+        echo "adventure > delete";
+    }
+
 }

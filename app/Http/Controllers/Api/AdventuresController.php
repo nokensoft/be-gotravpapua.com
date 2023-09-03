@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\TourAdventur;
+use App\Models\TourAdventures;
 use App\Http\Resources\PostResource;
 
-class AdventuresController extends Controller
+class adventuresesController extends Controller
 {
     public function index()
     {
 
-     $data = TourAdventur::with('user')->get();
+     $data = TourAdventures::with('user')->get();
 
         return response()->json([
             'status' => true,
@@ -21,10 +21,9 @@ class AdventuresController extends Controller
         ]);
     }
 
-
     public function show($slug)
     {
-        $data = TourAdventur::where('slug_adventur','=', $slug)->with('user')->first();
+        $data = TourAdventures::where('slug_adventures','=', $slug)->with('user')->first();
 
         return response()->json([
             'status' => true,
