@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\TourPackagesController;
-use App\Http\Controllers\Api\DestinationsController;
+use App\Http\Controllers\Api\TourDestinationsController;
 use App\Http\Controllers\Api\TourAdventuresController;
 use App\Http\Controllers\Api\TourEventsController;
 use App\Http\Controllers\Api\MessagesController;
@@ -16,8 +16,8 @@ Route::prefix('v1')->middleware(['api'])->group(function () {
     Route::get('/tour-packages/{slug}/detail', [TourPackagesController::class, 'show']);
 
     // destinations
-    Route::get('/destinations', [DestinationsController::class, 'index']);
-    Route::get('/destination/{slug}/detail', [DestinationsController::class, 'show']);
+    Route::get('/tour-destinations', [TourDestinationsController::class, 'index']);
+    Route::get('/tour-destinations/{slug}/detail', [TourDestinationsController::class, 'show']);
 
     // adventures
     Route::get('/tour-adventures', [TourAdventuresController::class, 'index']);

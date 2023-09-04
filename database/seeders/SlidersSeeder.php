@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Sliders;
 
-class SliderSeeder extends Seeder
+class SlidersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
