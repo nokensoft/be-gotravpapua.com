@@ -16,12 +16,16 @@ return new class extends Migration
         Schema::create('tour_events', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+
             $table->mediumText('body')->nullable();
             $table->text('description')->nullable();
             $table->string('picture')->nullable();
             $table->enum('status',['Publish','Draft']);
             $table->bigInteger('user_id')->unsigned();
             $table->foreignId('locations_id')->nullable();
+            
+            $table->softDeletes();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
         });

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\TourAdventures;
+use App\Models\TourEvents;
 
 use Illuminate\Support\Str;
 
@@ -16,7 +16,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Http\Request;
 
-class AdventuresController extends Controller
+class EventsController extends Controller
 {
 
     /*
@@ -30,7 +30,7 @@ class AdventuresController extends Controller
 
     public function index(Request $request)
     {
-        $datas = TourAdventures::where([
+        $datas = TourEvents::where([
             ['title', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
@@ -41,13 +41,13 @@ class AdventuresController extends Controller
             }]
         ])->where('status', 'Publish')->latest('id')->paginate(5);
 
-        return view('dashboard.adventures.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dashboard.Events.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     // draft
     public function draft(Request $request)
     {
-        $datas = TourAdventures::where([
+        $datas = TourEvents::where([
             ['title', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
@@ -58,21 +58,21 @@ class AdventuresController extends Controller
             }]
         ])->where('status', 'Draft')->latest('id')->paginate(5);
 
-        return view('dashboard.adventures.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dashboard.events.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     // trash
     public function trash()
     {
         // 
-        $datas = TourAdventures::onlyTrashed()->paginate(5);
-        return view('dashboard.adventures.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $datas = TourEvents::onlyTrashed()->paginate(5);
+        return view('dashboard.events.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     // create
     public function create()
     {
-        return view('dashboard.adventures.create');
+        return view('dashboard.events.create');
     }
 
     // store
@@ -94,10 +94,10 @@ class AdventuresController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $data = new TourAdventures();
+                $data = new TourEvents();
 
                 $data->title = $request->title;
-                $data->slug_adventures = Str::slug($data->slug_adventures);
+                $data->slug = Str::slug($data->slug);
 
                 $data->user_id = Auth::user()->id;
 
@@ -107,18 +107,18 @@ class AdventuresController extends Controller
 
                 // if ($request->picture) {
                 //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_adventures');
+                //     $path = public_path('picture/tour_events');
                 //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                 //         unlink($path . '/' . $data->picture);
                 //     endif;
                 //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/tour_adventures'), $pictureName);
+                //     $request->picture->move(public_path('picture/tour_events'), $pictureName);
                 // }
 
                 $data->save();
 
                 Alert::toast('Created!', 'Success');
-                return redirect('dashboard/adventures/' . $data->id . '/show');
+                return redirect('dashboard/events/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed', 'Oops! Something is wrong...');
@@ -131,15 +131,15 @@ class AdventuresController extends Controller
 
     public function show($id)
     {
-        $data = TourAdventures::where('id', $id)->first();
-        return view('dashboard.adventures.show', compact('data'));
+        $data = TourEvents::where('id', $id)->first();
+        return view('dashboard.events.show', compact('data'));
     }
 
     // edit
     public function edit($id)
     {
-        $data = TourAdventures::where('id', $id)->first();
-        return view('dashboard.adventures.edit', compact('data'));
+        $data = TourEvents::where('id', $id)->first();
+        return view('dashboard.events.edit', compact('data'));
     }
 
     // update
@@ -163,16 +163,16 @@ class AdventuresController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $data = TourAdventures::find($id);
+                $data = TourEvents::find($id);
                 
                 $data->title = $request->title;
-                $data->slug_adventures = Str::slug($data->slug_adventures);
+                $data->slug = Str::slug($data->slug);
                 
                 $data->description = $request->description;
 
                 // if ($request->picture) {
                 //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_adventures');
+                //     $path = public_path('picture/tour_events');
                 //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                 //         unlink($path . '/' . $data->picture);
                 //     endif;
@@ -183,7 +183,7 @@ class AdventuresController extends Controller
                 $data->update();
 
                 Alert::toast('Updated!', 'Success');
-                return redirect('dashboard/adventures/' . $data->id . '/show');
+                return redirect('dashboard/events/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed', 'Oops! Something is wrong...');
@@ -195,16 +195,16 @@ class AdventuresController extends Controller
     // destroy
     public function destroy($id)
     {
-        $data = TourAdventures::find($id);
+        $data = TourEvents::find($id);
         $data->delete();
         alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
-        return to_route('dashboard.adventures.trash');
+        return to_route('dashboard.events.trash');
     }
 
     // restore    
     public function restore($id)
     {
-        $data = TourAdventures::onlyTrashed()->where('id', $id);
+        $data = TourEvents::onlyTrashed()->where('id', $id);
         $data->restore();
         alert()->success('Restored', 'Data has been restored!!')->autoclose(1500);
         return redirect()->back();
@@ -213,9 +213,9 @@ class AdventuresController extends Controller
     // delete
     public function delete($id)
     {
-        $data = TourAdventures::onlyTrashed()->findOrFail($id);
+        $data = TourEvents::onlyTrashed()->findOrFail($id);
         
-        // $path = public_path('tour_adventures/' . $data->picture);
+        // $path = public_path('tour_events/' . $data->picture);
 
         // if (file_exists($path)) {
         //     File::delete($path);

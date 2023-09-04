@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TourEvent extends Model
+class TourEvents extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     public $guarded = [];
 
     public function user()

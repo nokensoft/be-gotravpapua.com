@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-body">
 
-                <form action="{{ route('dashboard.'.Request::segment(2).'.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('put')
 

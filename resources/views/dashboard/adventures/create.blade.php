@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-body">
 
-                <form action="{{ route('dashboard.adventures.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('dashboard.'.Request::segment(2).'.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                     <div class="row">
@@ -51,7 +51,7 @@
                         <i class="fa-solid fa-plus-square"></i> Submit
                     </button>
                     
-                    <a href="{{ route('dashboard.adventures') }}" class="btn btn-outline-dark rounded-0 border-0">
+                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
                         <i class="fa-solid fa-times-square"></i> Cancle
                     </a>
 

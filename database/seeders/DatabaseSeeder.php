@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UsersSeeder::class,
             TourAdventuresSeeder::class,
+            TourEventsSeeder::class,
             TourPackagesSeeder::class,
             SliderSeeder::class,
         ]);
