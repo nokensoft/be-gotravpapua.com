@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Api\TourPackagesController;
-use App\Http\Controllers\Api\TourDestinationsController;
-use App\Http\Controllers\Api\TourAdventuresController;
-use App\Http\Controllers\Api\TourEventsController;
-use App\Http\Controllers\Api\MessagesController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SlidersController;
+use App\Http\Controllers\Api\MessagesController;
 use App\Http\Controllers\Api\SettingsController;
+use App\Http\Controllers\Api\TourEventsController;
+use App\Http\Controllers\Api\TourPackagesController;
+use App\Http\Controllers\Api\TourAdventuresController;
+use App\Http\Controllers\Api\TourDestinationsController;
 
 
 Route::prefix('v1')->middleware(['api'])->group(function () {
