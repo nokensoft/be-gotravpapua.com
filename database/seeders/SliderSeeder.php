@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Slider;
+use App\Models\Sliders;
 
 class SliderSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class SliderSeeder extends Seeder
      */
     public function run()
     {
-        Slider::create([
+        Sliders::create([
             'title' => 'Lorem Ipsum',
             'sub_title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
@@ -26,7 +26,7 @@ class SliderSeeder extends Seeder
             'slug_slider' => 'lorem-lpsum-1'
          ]);
 
-         Slider::create([
+         Sliders::create([
             'title' => 'Lorem Ipsum',
             'sub_title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,

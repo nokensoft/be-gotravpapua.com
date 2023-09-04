@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TourAdventures;
 use App\Http\Resources\PostResource;
 
-class adventuresesController extends Controller
+class TourAdventuresController extends Controller
 {
     public function index()
     {

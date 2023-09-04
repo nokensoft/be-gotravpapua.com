@@ -22,7 +22,7 @@ class TourEventsSeeder extends Seeder
             'picture' => '01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug' => 'lorem-lpsum-1'
+            'slug_tour_event' => 'lorem-lpsum-1'
          ]);
 
 
@@ -33,7 +33,7 @@ class TourEventsSeeder extends Seeder
             'picture' => '02.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug' => 'lorem-lpsum-2'
+            'slug_tour_event' => 'lorem-lpsum-2'
          ]);
 
 
@@ -44,7 +44,7 @@ class TourEventsSeeder extends Seeder
             'picture' => '03.png' ,
             'status' => 'Draft' ,
             'user_id' => '1' ,
-            'slug' => 'lorem-lpsum-3'
+            'slug_tour_event' => 'lorem-lpsum-3'
          ]);
 
 

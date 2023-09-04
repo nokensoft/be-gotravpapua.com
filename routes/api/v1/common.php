@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Api\PackagesController;
 use App\Http\Controllers\Api\DestinationsController;
-use App\Http\Controllers\Api\AdventuresController;
-use App\Http\Controllers\Api\EventsController;
+use App\Http\Controllers\Api\TourAdventuresController;
+use App\Http\Controllers\Api\TourEventsController;
 use App\Http\Controllers\Api\MessagesController;
 use App\Http\Controllers\Api\SlidersController;
 use App\Http\Controllers\Api\SettingsController;
@@ -20,12 +20,12 @@ Route::prefix('v1')->middleware(['api'])->group(function () {
     Route::get('/destination/{slug}/detail', [DestinationsController::class, 'show']);
 
     // adventures
-    Route::get('/adventures', [AdventuresController::class, 'index']);
-    Route::get('/adventures/{slug}/detail', [AdventuresController::class, 'show']);
+    Route::get('/tour-adventures', [TourAdventuresController::class, 'index']);
+    Route::get('/tour-adventures/{slug}/detail', [TourAdventuresController::class, 'show']);
 
     // events
-    Route::get('/events', [EventsController::class, 'index']);
-    Route::get('/event/{slug}/detail', [EventsController::class, 'show']);
+    Route::get('/tour-events', [TourEventsController::class, 'index']);
+    Route::get('/tour-events/{slug}/detail', [TourEventsController::class, 'show']);
 
     // messages
     Route::post('/messages/store', [MessagesController::class, 'store']);
