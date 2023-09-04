@@ -120,9 +120,6 @@ class AdventuresController extends Controller
                 Alert::toast('Created!', 'Success');
                 return redirect('dashboard/adventures/' . $data->id . '/show');
 
-                Alert::toast('Created!', 'Success');
-                return redirect()->route('dashboard.adventures');
-
             } catch (\Throwable $th) {
                 Alert::toast('Failed', 'Oops! Something is wrong...');
                 return redirect()->back();
@@ -146,10 +143,53 @@ class AdventuresController extends Controller
     }
 
     // update
+
     public function update(Request $request, $id)
     {
-        // 
-        echo "adventure > update";
+       
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required',
+                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+            ],
+            [
+                'title.required' => 'This is a reaquired field',
+                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $data = TourAdventures::find($id);
+                
+                $data->title = $request->title;
+                $data->slug_adventures = Str::slug($data->slug_adventures);
+                
+                $data->description = $request->description;
+
+                // if ($request->picture) {
+                //     $pictureName = $data->slug . '.' . $request->picture->extension();
+                //     $path = public_path('picture/tour_adventures');
+                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                //         unlink($path . '/' . $data->picture);
+                //     endif;
+                //     $data->picture = $pictureName;
+                //     $request->picture->move(public_path('picture/slider'), $pictureName);
+                // }
+
+                $data->update();
+
+                Alert::toast('Updated!', 'Success');
+                return redirect('dashboard/adventures/' . $data->id . '/show');
+
+            } catch (\Throwable $th) {
+                Alert::toast('Failed', 'Oops! Something is wrong...');
+                return redirect()->back();
+            }
+        }
     }
 
     // destroy

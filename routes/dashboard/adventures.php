@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
             Route::get('adventures/{id}/edit','edit')->name('dashboard.adventures.edit');
 
             // update
-            Route::put('adventures/{id}','update')->name('dashboard.adventures.update');
+            Route::put('adventures/update/{id}','update')->name('dashboard.adventures.update');
 
             // destroy
             Route::delete('adventures/destroy/{id}','destroy')->name('dashboard.adventures.destroy');
