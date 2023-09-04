@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\PackagesController;
+use App\Http\Controllers\Api\TourPackagesController;
 use App\Http\Controllers\Api\DestinationsController;
 use App\Http\Controllers\Api\TourAdventuresController;
 use App\Http\Controllers\Api\TourEventsController;
@@ -12,8 +12,8 @@ use App\Http\Controllers\Api\SettingsController;
 Route::prefix('v1')->middleware(['api'])->group(function () {
 
     // packages
-    Route::get('/packages', [PackagesController::class, 'index']);
-    Route::get('/package/{slug}/detail', [PackagesController::class, 'show']);
+    Route::get('/tour-packages', [TourPackagesController::class, 'index']);
+    Route::get('/tour-packages/{slug}/detail', [TourPackagesController::class, 'show']);
 
     // destinations
     Route::get('/destinations', [DestinationsController::class, 'index']);

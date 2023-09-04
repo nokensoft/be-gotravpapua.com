@@ -83,6 +83,26 @@
       {"status":true,"message":"Success","data":{"id":3,"title":"Baliem Valley Festival, 2024","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"03.png","status":"Draft","user_id":1,"locations_id":null,"deleted_at":null,"created_at":"2023-09-04T10:42:10.000000Z","updated_at":"2023-09-04T10:42:10.000000Z","slug_tour_event":"lorem-lpsum-3","user":{"id":1,"name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"picture":"00.jpg","slug":"admin-gotrav","status":"Publish","deleted_at":null,"created_at":"2023-09-04T10:42:10.000000Z","updated_at":"2023-09-04T10:42:10.000000Z","slug_user":null}}}
     ```
 
+    #### Tour Packages
+
+-   _Tour Packages_
+-   _Method get_ http://127.0.0.1:8000/api/v1/tour-packages
+
+-   _result_
+
+    ```
+    {"status":true,"message":"Success","data":{"id":2,"title":"Papuan Paradise Expedition","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"01.png","status":"Publish","user_id":1,"deleted_at":null,"created_at":"2023-09-04T12:28:46.000000Z","updated_at":"2023-09-04T12:28:46.000000Z","slug_tour_package":"lorem-2","user":{"id":1,"name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"picture":"00.jpg","slug":"admin-gotrav","status":"Publish","deleted_at":null,"created_at":"2023-09-04T12:28:46.000000Z","updated_at":"2023-09-04T12:28:46.000000Z","slug_user":null}}}
+    ```
+
+-   _Tour Packages Detail_
+-   _Method get_ http://127.0.0.1:8000/api/v1/tour-packages/lorem-2/detail
+
+-   _result_
+
+    ```
+       {"status":true,"message":"Success","data":{"id":2,"title":"Papuan Paradise Expedition","body":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!","picture":"01.png","status":"Publish","user_id":1,"deleted_at":null,"created_at":"2023-09-04T12:28:46.000000Z","updated_at":"2023-09-04T12:28:46.000000Z","slug_tour_package":"lorem-2","user":{"id":1,"name":"Admin GOTRAV","job_title":"Administrator on www.gotravpapua.com","email":"admin@gotravpapua.com","email_verified_at":null,"picture":"00.jpg","slug":"admin-gotrav","status":"Publish","deleted_at":null,"created_at":"2023-09-04T12:28:46.000000Z","updated_at":"2023-09-04T12:28:46.000000Z","slug_user":null}}}
+    ```
+
 ## Dev URLs
 
 ## Artisan Commands

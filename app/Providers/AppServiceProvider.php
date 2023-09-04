@@ -45,33 +45,33 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    // public function boot()
+    // {
 
-        if(config('app.env') === 'production') { URL::forceScheme('https'); }
+    //     if(config('app.env') === 'production') { URL::forceScheme('https'); }
 
-        // Pagination Configs
-        Paginator::useBootstrap();
+    //     // Pagination Configs
+    //     Paginator::useBootstrap();
 
-        // Date Configs
-        $today = Carbon::today()->toDateString();
-        $bulanIni = Carbon::now()->format('m');
-        $tahunIni = Carbon::now()->format('Y');
-        $startDate = Carbon::now()->startOfWeek();
-        $endDate = Carbon::now()->endOfWeek();
+    //     // Date Configs
+    //     $today = Carbon::today()->toDateString();
+    //     $bulanIni = Carbon::now()->format('m');
+    //     $tahunIni = Carbon::now()->format('Y');
+    //     $startDate = Carbon::now()->startOfWeek();
+    //     $endDate = Carbon::now()->endOfWeek();
 
-        view()->share([
+    //     view()->share([
 
-            // Settings
-            'settings' => Settings::first(),
+    //         // Settings
+    //         'settings' => Settings::first(),
 
-            // // Totals
-            // 'dashboard_total_packages' => Students::where('status','Publish')->count(),
-            // 'dashboard_total_packages_draft' => Students::where('status','Draft')->count(),
-            // 'dashboard_total_packages_semua' => Students::count(),
+    //         // // Totals
+    //         // 'dashboard_total_packages' => Students::where('status','Publish')->count(),
+    //         // 'dashboard_total_packages_draft' => Students::where('status','Draft')->count(),
+    //         // 'dashboard_total_packages_semua' => Students::count(),
 
-        ]);
+    //     ]);
 
-    }
+    // }
 
 }

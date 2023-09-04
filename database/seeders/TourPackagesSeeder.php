@@ -22,6 +22,17 @@ class TourPackagesSeeder extends Seeder
             'picture' => '01.png',
             'status' => 'Publish',
             'user_id' => '1',
+            'slug_tour_package' => 'lorem-1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Papuan Paradise Expedition',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => '01.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+            'slug_tour_package' => 'lorem-2',
         ]);
     }
 }
