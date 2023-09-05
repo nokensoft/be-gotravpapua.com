@@ -114,11 +114,12 @@ class AdventuresController extends Controller
 
                 $data->save();
                 $request->picture->move(public_path('images/tour_adventures'), $pictureName);
-                Alert::toast('Created!', 'Success');
+                
+                Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/adventures/' . $data->slug_adventure . '/show');
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
@@ -172,23 +173,25 @@ class AdventuresController extends Controller
                 $data->status = $request->status;
                 $data->description = $request->description;
 
-                if ($request->picture) {
-                    $pictureName = $data->slug . '.' . $request->picture->extension();
-                    $path = public_path('images/tour_adventures');
-                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                        unlink($path . '/' . $data->picture);
-                    endif;
-                    $data->picture = $pictureName;
-                    $request->picture->move(public_path('images/tour_adventures'), $pictureName);
-                }
+                $data->picture = '00.png'; // default picture
+
+                // if ($request->picture) {
+                //     $pictureName = $data->slug . '.' . $request->picture->extension();
+                //     $path = public_path('images/tour_adventures');
+                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                //         unlink($path . '/' . $data->picture);
+                //     endif;
+                //     $data->picture = $pictureName;
+                //     $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+                // }
 
                 $data->update();
-
-                Alert::toast('Updated!', 'Success');
+                
+                Alert::toast('Updated! This data has been updated successfully.', 'success');
                 return redirect('dashboard/adventures/' . $data->slug_adventure . '/show');
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }

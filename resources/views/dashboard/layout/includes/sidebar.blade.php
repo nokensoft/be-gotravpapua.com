@@ -27,7 +27,7 @@
                         
                         <div id="sidebar-menu">
                             <ul id="side-menu">
-                                <li class="@if(Request::segment(1) == 'dashboard') menuitem-active @endif">
+                                <li class="@if(!Request::segment(1) == 'dashboard') menuitem-active @endif">
                                     <a href="{{ url('dashboard') }}">
                                         <i data-feather="airplay"></i>
                                         <span> Dashboard </span>
@@ -37,7 +37,7 @@
 
                                 <li class="menu-title mt-2">Content Management</li>
 
-                                <li class="@if(Request::segment(1) == 'packages') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'packages') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/packages') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -48,7 +48,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'destinations') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'destinations') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/destinations') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -59,7 +59,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'adventures') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'adventures') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/adventures') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -70,7 +70,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'events') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'events') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/events') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -81,7 +81,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'messages') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/messages') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -92,7 +92,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'sliders') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'sliders') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/sliders') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -105,7 +105,7 @@
                                 
                                 <li class="menu-title mt-2">Administrator</li>
 
-                                <li class="@if(Request::segment(1) == 'users') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'users') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/users') }}">
                                         <i class="fa-solid fa-users"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -116,7 +116,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'settings') menuitem-active @endif">
+                                <li class="@if(Request::segment(2) == 'settings') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/settings') }}">
                                         <i class="fa-solid fa-gear"></i>
                                         <span class="badge badge-success badge-pill float-right">

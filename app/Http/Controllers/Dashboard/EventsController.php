@@ -106,21 +106,23 @@ class EventsController extends Controller
                 $data->status = $request->status;
                 $data->description = $request->description;
 
-                    $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
-                    $path = public_path('images/tour_events');
-                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                        unlink($path . '/' . $data->picture);
-                    endif;
-                    $data->picture = $pictureName;
-                    $request->picture->move(public_path('images/tour_events'), $pictureName);
+                $data->picture = '00.png'; // default picture
+
+                    // $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
+                    // $path = public_path('images/tour_events');
+                    // if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                    //     unlink($path . '/' . $data->picture);
+                    // endif;
+                    // $data->picture = $pictureName;
+                    // $request->picture->move(public_path('images/tour_events'), $pictureName);
 
                 $data->save();
-                Alert::toast('Created!', 'Success');
+                
+                Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
 
             } catch (\Throwable $th) {
-                dd($th);
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
@@ -186,12 +188,12 @@ class EventsController extends Controller
                 }
 
                 $data->update();
-
-                Alert::toast('Updated!', 'Success');
+                
+                Alert::toast('Updated! This data has been updated successfully.', 'success');
                 return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }

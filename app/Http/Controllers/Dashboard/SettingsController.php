@@ -69,7 +69,7 @@ class SettingsController extends Controller
 
                 $Settings->update();
 
-                Alert::toast('Settings Berhasil diperbarui!', 'success');
+                Alert::toast('Settings has been updated successfully', 'success');
 
                 if(!empty($request->inputGroup)) {
                     return redirect('dashboard/Settings/' . $request->inputGroup);
@@ -81,7 +81,7 @@ class SettingsController extends Controller
             } catch (\Throwable $th) {
 
                 dd($th);
-                Alert::toast('Gagal', 'error');
+                Alert::toast('Failed', 'error');
                 return redirect()->back();
 
             }

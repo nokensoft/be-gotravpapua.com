@@ -99,6 +99,8 @@ class PackagesController extends Controller
                 $data->slug = Str::slug($data->title);
 
                 $data->description = $request->description;
+
+                $data->picture = '00.png'; // default picture
                 
                 $data->user_id = Auth::user()->id;
 
@@ -111,13 +113,12 @@ class PackagesController extends Controller
                     // $request->picture->move(public_path('images/tour_packages'), $pictureName);
 
                 $data->save();
-
-                Alert::toast('Created!', 'Success');
+                
+                Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/packages/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
-                dd($th);
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
@@ -162,11 +163,8 @@ class PackagesController extends Controller
 
                 $data->title = $request->title;
                 $data->slug = Str::slug($data->title);
-                $data->user_id = Auth::user()->id;
-                $data->body = $request->body;
-                $data->status = $request->status;
+                
                 $data->description = $request->description;
-
 
                 // if ($request->picture) {
                 //     $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();

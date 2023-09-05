@@ -116,12 +116,12 @@ class DestinationsController extends Controller
                 // }
 
                 $data->save();
-
-                Alert::toast('Created!', 'Success');
+                
+                Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/destinations/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
@@ -181,12 +181,12 @@ class DestinationsController extends Controller
                 // }
 
                 $data->update();
-
-                Alert::toast('Updated!', 'Success');
+                
+                Alert::toast('Updated! This data has been updated successfully.', 'success');
                 return redirect('dashboard/destinations/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'Oops! Something is wrong...');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
