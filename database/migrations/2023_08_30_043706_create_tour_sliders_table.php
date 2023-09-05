@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sliders', function (Blueprint $table) {
+        Schema::create('tour_sliders', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('sub_title')->nullable();
+            $table->string('slug')->nullable();
             $table->string('description')->nullable();
-            $table->string('link_satu_label')->nullable();
-            $table->string('link_satu_url')->nullable();
-            $table->string('link_dua_label')->nullable();
-            $table->string('link_dua_url')->nullable();
+            $table->softDeletes();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
         });
     }
 
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sliders');
+        Schema::dropIfExists('tour_sliders');
     }
 };

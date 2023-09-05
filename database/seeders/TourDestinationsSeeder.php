@@ -16,23 +16,23 @@ class TourDestinationsSeeder extends Seeder
     public function run()
     {
         TourDestinations::create([
-            'title' => 'Scuba Diving and Snorkeling',
+            'title' => 'Pantai Base-G',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug_tour_destination' => 'lorem-lpsum-1'
+            'slug' => 'lorem-lpsum-1'
          ]);
 
          TourDestinations::create([
-            'title' => 'Scuba Diving and Snorkeling',
+            'title' => 'Danau Sentani',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug_tour_destination' => 'lorem-lpsum-2'
+            'slug' => 'lorem-lpsum-2'
          ]);
     }
 }

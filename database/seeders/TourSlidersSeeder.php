@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Sliders;
+use App\Models\TourSliders;
 
-class SlidersSeeder extends Seeder
+class TourSlidersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class SlidersSeeder extends Seeder
      */
     public function run()
     {
-        Sliders::create([
+        TourSliders::create([
             'title' => 'Lorem Ipsum',
             'sub_title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
@@ -26,7 +26,7 @@ class SlidersSeeder extends Seeder
             'slug_slider' => 'lorem-lpsum-1'
          ]);
 
-         Sliders::create([
+         TourSliders::create([
             'title' => 'Lorem Ipsum',
             'sub_title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
