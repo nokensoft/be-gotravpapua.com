@@ -20,9 +20,9 @@
                                 <th>No</th>
                                 <th>Picture</th>
                                 <th>Title</th>
-                                <th>Item</th>
-                                <th>Item</th>
-                                <th>Item</th>
+                                <th>Body</th>
+                                <th>Description</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -39,9 +39,9 @@
                                     @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>
-                                <td>{{ 'item' }}</td>
-                                <td>{{ 'item' }}</td>
-                                <td>{{ 'item' }}</td>
+                                <td>{{ Str::limit($data->body, 20, '...') }}</td>
+                                <td>{{ Str::limit($data->body, 20, '...') }}</td>
+                                <td>{{ $data->status}}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 

@@ -64,7 +64,7 @@ class AdventuresController extends Controller
     // trash
     public function trash()
     {
-        // 
+        //
         $datas = TourAdventures::onlyTrashed()->paginate(5);
         return view('dashboard.adventures.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -82,11 +82,14 @@ class AdventuresController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -95,30 +98,24 @@ class AdventuresController extends Controller
         } else {
             try {
                 $data = new TourAdventures();
-
                 $data->title = $request->title;
-                $data->slug_adventures = Str::slug($data->slug_adventures);
-
+                $data->slug_adventure = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
-
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                $data->picture = '00.png';
-
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_adventures');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/tour_adventures'), $pictureName);
-                // }
+                    $pictureName = $data->slug . '.' . $request->picture->extension();
+                    $path = public_path('images/tour_adventures');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
 
                 $data->save();
-
+                $request->picture->move(public_path('images/tour_adventures'), $pictureName);
                 Alert::toast('Created!', 'Success');
-                return redirect('dashboard/adventures/' . $data->id . '/show');
+                return redirect('dashboard/adventures/' . $data->slug_adventure . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed', 'Oops! Something is wrong...');
@@ -131,14 +128,14 @@ class AdventuresController extends Controller
 
     public function show($id)
     {
-        $data = TourAdventures::where('id', $id)->first();
+        $data = TourAdventures::where('slug_adventure', $id)->first();
         return view('dashboard.adventures.show', compact('data'));
     }
 
     // edit
     public function edit($id)
     {
-        $data = TourAdventures::where('id', $id)->first();
+        $data = TourAdventures::where('slug_adventure', $id)->first();
         return view('dashboard.adventures.edit', compact('data'));
     }
 
@@ -146,16 +143,19 @@ class AdventuresController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         $validator = Validator::make(
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -164,26 +164,28 @@ class AdventuresController extends Controller
         } else {
             try {
                 $data = TourAdventures::find($id);
-                
+
                 $data->title = $request->title;
-                $data->slug_adventures = Str::slug($data->slug_adventures);
-                
+                $data->slug_adventure = Str::slug($data->title);
+                $data->user_id = Auth::user()->id;
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_adventures');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/slider'), $pictureName);
-                // }
+                if ($request->picture) {
+                    $pictureName = $data->slug . '.' . $request->picture->extension();
+                    $path = public_path('images/tour_adventures');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+                }
 
                 $data->update();
 
                 Alert::toast('Updated!', 'Success');
-                return redirect('dashboard/adventures/' . $data->id . '/show');
+                return redirect('dashboard/adventures/' . $data->slug_adventure . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed', 'Oops! Something is wrong...');
@@ -201,7 +203,7 @@ class AdventuresController extends Controller
         return to_route('dashboard.adventures.trash');
     }
 
-    // restore    
+    // restore
     public function restore($id)
     {
         $data = TourAdventures::onlyTrashed()->where('id', $id);
@@ -214,7 +216,7 @@ class AdventuresController extends Controller
     public function delete($id)
     {
         $data = TourAdventures::onlyTrashed()->findOrFail($id);
-        
+
         // $path = public_path('tour_adventures/' . $data->picture);
 
         // if (file_exists($path)) {
