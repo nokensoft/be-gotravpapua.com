@@ -32,28 +32,53 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>
-                                    <img src="{{ asset('images/packages/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
+                                    @if (empty($data))   
+                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
+                                    @else
+                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
+                                    @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>
                                 <td>{{ 'item' }}</td>
                                 <td>{{ 'item' }}</td>
                                 <td>{{ 'item' }}</td>
+                                @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
-                                    <a href="{{ route('dashboard.adventures.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
+
+                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.restore', $data->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-outline-success rounded-0 mx-1">
+                                        <i class="fa-solid fa-reply"></i> Restore
+                                    </button>
+                                    </form>
+
+                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.delete', $data->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger rounded-0 mx-1 show_confirm">
+                                        <i class="fa-solid fa-times-square" data-toggle="tooltip" title='Delete'></i> Delete Permanently
+                                    </button>
+                                    </form>
+
+                                </td>
+                                @else
+                                <td class="d-flex">
+                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('dashboard.adventures.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('dashboard.adventures.destroy', $data->id) }}" method="POST">
+                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1>
+                                    <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                     </form>
-                                </td>
+                                </td> 
+                                @endif
                             </tr>            
                             @endforeach
                         </tbody>
@@ -72,3 +97,5 @@
 <!-- .row END -->
     
 @endsection
+
+@include('dashboard.layout.includes.index-script-footer')

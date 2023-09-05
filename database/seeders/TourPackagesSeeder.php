@@ -16,23 +16,33 @@ class TourPackagesSeeder extends Seeder
     public function run()
     {
         TourPackages::create([
-            'title' => 'Papuan Paradise Expedition',
+            'title' => 'Tour Package 1',
+            'slug' => 'tour-package-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
             'picture' => '01.png',
             'status' => 'Publish',
             'user_id' => '1',
-            'slug_tour_package' => 'lorem-1',
         ]);
 
         TourPackages::create([
-            'title' => 'Papuan Paradise Expedition',
+            'title' => 'Tour Package 2',
+            'slug' => 'tour-package-2',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
-            'picture' => '01.png',
+            'picture' => '02.png',
             'status' => 'Publish',
             'user_id' => '1',
-            'slug_tour_package' => 'lorem-2',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 3',
+            'slug' => 'tour-package-3',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => '03.png',
+            'status' => 'Draft',
+            'user_id' => '1',
         ]);
     }
 }

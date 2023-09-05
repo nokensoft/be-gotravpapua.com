@@ -21,7 +21,7 @@ class EventsController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | packages
+    | events
     | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
     |--------------------------------------------------------------------------
     */
@@ -41,7 +41,7 @@ class EventsController extends Controller
             }]
         ])->where('status', 'Publish')->latest('id')->paginate(5);
 
-        return view('dashboard.Events.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dashboard.events.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     // draft
@@ -112,9 +112,9 @@ class EventsController extends Controller
                         unlink($path . '/' . $data->picture);
                     endif;
                     $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_events'), $pictureName);
 
                 $data->save();
-                $request->picture->move(public_path('images/tour_events'), $pictureName);
                 Alert::toast('Created!', 'Success');
                 return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
 
@@ -130,14 +130,14 @@ class EventsController extends Controller
 
     public function show($id)
     {
-        $data = TourEvents::where('slug_tour_event', $id)->first();
+        $data = TourEvents::where('id', $id)->first();
         return view('dashboard.events.show', compact('data'));
     }
 
     // edit
     public function edit($id)
     {
-        $data = TourEvents::where('slug_tour_event', $id)->first();
+        $data = TourEvents::where('id', $id)->first();
         return view('dashboard.events.edit', compact('data'));
     }
 

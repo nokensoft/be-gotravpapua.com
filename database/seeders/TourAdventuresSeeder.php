@@ -16,7 +16,8 @@ class TourAdventuresSeeder extends Seeder
     public function run()
     {
         TourAdventures::create([
-            'title' => 'Scuba Diving and Snorkeling',
+            'title' => 'Tour Adventure 1',
+            'slug' => 'tour-adventure-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,
@@ -27,7 +28,8 @@ class TourAdventuresSeeder extends Seeder
 
 
          TourAdventures::create([
-            'title' => 'Hiking and Trekking',
+            'title' => 'Tour Adventure 2',
+            'slug' => 'tour-adventure-2',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '02.png' ,
@@ -38,7 +40,8 @@ class TourAdventuresSeeder extends Seeder
 
 
          TourAdventures::create([
-            'title' => 'Cultural Immersion',
+            'title' => 'Tour Adventure 3',
+            'slug' => 'tour-adventure-3',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '03.png' ,

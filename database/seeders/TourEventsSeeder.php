@@ -16,7 +16,8 @@ class TourEventsSeeder extends Seeder
     public function run()
     {
         TourEvents::create([
-            'title' => 'Lake Sentani Festival, 2024',
+            'title' => 'Tour Event 1',
+            'slug' => 'tour-event-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,
@@ -27,7 +28,8 @@ class TourEventsSeeder extends Seeder
 
 
          TourEvents::create([
-            'title' => 'Biak Munara Wampasi, 2024',
+            'title' => 'Tour Event 2',
+            'slug' => 'tour-event-2',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '02.png' ,
@@ -38,7 +40,8 @@ class TourEventsSeeder extends Seeder
 
 
          TourEvents::create([
-            'title' => 'Baliem Valley Festival, 2024',
+            'title' => 'Tour Event 3',
+            'slug' => 'tour-event-3',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '03.png' ,

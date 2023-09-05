@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             TourEventsSeeder::class,
             TourPackagesSeeder::class,
             TourDestinationsSeeder::class,
-            TourSlidersSeeder::class
+            TourSlidersSeeder::class,
+            TourMessagesSeeder::class
         ]);
     }
 }

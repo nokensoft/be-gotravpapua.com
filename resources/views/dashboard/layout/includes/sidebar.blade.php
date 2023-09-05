@@ -43,7 +43,7 @@
                                         <span class="badge badge-success badge-pill float-right">
                                             {{ '0' }}
                                         </span>
-                                        <span> Tour Packages</span>
+                                        <span> Packages</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
@@ -81,13 +81,13 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(1) == 'inbox') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/inbox') }}">
+                                <li class="@if(Request::segment(1) == 'messages') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/messages') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
                                             {{ '0' }}
                                         </span>
-                                        <span> Inbox</span>
+                                        <span> Messages</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->

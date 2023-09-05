@@ -16,7 +16,8 @@ class TourDestinationsSeeder extends Seeder
     public function run()
     {
         TourDestinations::create([
-            'title' => 'Pantai Base-G',
+            'title' => 'Tour Destination 1',
+            'slug' => 'tour-destination-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,
@@ -26,7 +27,8 @@ class TourDestinationsSeeder extends Seeder
          ]);
 
          TourDestinations::create([
-            'title' => 'Danau Sentani',
+            'title' => 'Tour Destination 1',
+            'slug' => 'tour-destination-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,

@@ -12,13 +12,15 @@
 
 <div class="row">
     <div class="col-lg-6">
+
+        @if(Request::segment(2) != 'messages') 
+        
         <a href="{{ url(Request::segment(1) . '/' . Request::segment(2) .'/publish') }}" 
             @if(Request::segment(3) == '' || Request::segment(3) == 'publish') class="btn btn-sm btn-dark rounded-0" 
             @else class="btn btn-sm btn-outline-dark rounded-0" 
             @endif> 
             <i class="fa-solid fa-check mr-1"></i> Publish
         </a>
-
         <a href="{{ url(Request::segment(1) . '/' . Request::segment(2) .'/draft') }}" 
             @if(Request::segment(3) == 'draft') class="btn btn-sm btn-dark rounded-0" 
             @else class="btn btn-sm btn-outline-dark rounded-0" 
@@ -32,6 +34,24 @@
             @endif> 
             <i class="fa-solid fa-trash mr-1"></i> Trash
         </a>
+
+        @else
+        
+        <a href="{{ url(Request::segment(1) . '/' . Request::segment(2)) }}" 
+            @if(Request::segment(3) == '') class="btn btn-sm btn-dark rounded-0" 
+            @else class="btn btn-sm btn-outline-dark rounded-0" 
+            @endif> 
+            <i class="fa-solid fa-check mr-1"></i> Inbox
+        </a>
+
+        <a href="{{ url(Request::segment(1) . '/' . Request::segment(2) .'/trash') }}" 
+            @if(Request::segment(3) == 'trash') class="btn btn-sm btn-dark rounded-0" 
+            @else class="btn btn-sm btn-outline-dark rounded-0" 
+            @endif> 
+            <i class="fa-solid fa-trash mr-1"></i> Trash
+        </a>
+
+        @endif
 
     </div>
     <!-- .col END -->

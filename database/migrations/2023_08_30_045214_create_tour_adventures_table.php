@@ -14,13 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tour_adventures', function (Blueprint $table) {
+           
             $table->id();
+
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+
             $table->mediumText('body')->nullable();
             $table->text('description')->nullable();
+
             $table->string('picture')->nullable();
+
             $table->enum('status',['Publish','Draft']);
+            
             $table->bigInteger('user_id')->unsigned();
+
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');

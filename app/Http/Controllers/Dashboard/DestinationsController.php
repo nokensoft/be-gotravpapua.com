@@ -21,7 +21,7 @@ class DestinationsController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | packages
+    | destinations
     | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
     |--------------------------------------------------------------------------
     */

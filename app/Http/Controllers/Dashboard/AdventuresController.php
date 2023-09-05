@@ -21,7 +21,7 @@ class AdventuresController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | packages
+    | adventures
     | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
     |--------------------------------------------------------------------------
     */
@@ -128,14 +128,14 @@ class AdventuresController extends Controller
 
     public function show($id)
     {
-        $data = TourAdventures::where('slug_adventure', $id)->first();
+        $data = TourAdventures::where('id', $id)->first();
         return view('dashboard.adventures.show', compact('data'));
     }
 
     // edit
     public function edit($id)
     {
-        $data = TourAdventures::where('slug_adventure', $id)->first();
+        $data = TourAdventures::where('id', $id)->first();
         return view('dashboard.adventures.edit', compact('data'));
     }
 

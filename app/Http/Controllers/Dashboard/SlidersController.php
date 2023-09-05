@@ -21,7 +21,7 @@ class SlidersController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | packages
+    | sliders
     | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
     |--------------------------------------------------------------------------
     */
@@ -97,11 +97,9 @@ class SlidersController extends Controller
                 $data = new TourSliders();
 
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->slug);
-
-                $data->user_id = Auth::user()->id;
-
                 $data->description = $request->description;
+                
+                $data->user_id = Auth::user()->id;
 
                 $data->picture = '00.png';
 
@@ -142,7 +140,6 @@ class SlidersController extends Controller
     }
 
     // update
-
     public function update(Request $request, $id)
     {
 
@@ -163,9 +160,7 @@ class SlidersController extends Controller
         } else {
             try {
                 $data = TourSliders::find($id);
-
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->slug);
 
                 $data->description = $request->description;
 

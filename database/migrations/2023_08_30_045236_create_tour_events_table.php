@@ -14,12 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tour_events', function (Blueprint $table) {
+            
             $table->id();
-            $table->string('title')->nullable();
 
-            $table->mediumText('body')->nullable();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+
             $table->text('description')->nullable();
+            $table->mediumText('body')->nullable();
+
             $table->string('picture')->nullable();
+
             $table->enum('status',['Publish','Draft']);
             $table->bigInteger('user_id')->unsigned();
             $table->foreignId('locations_id')->nullable();
