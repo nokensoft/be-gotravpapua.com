@@ -90,33 +90,39 @@
                         @if (Auth::user()->hasRole('administrator'))
                         <li class="dropdown d-none d-xl-block">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fe-file-plus"></i> New
+                                <i class="fe-file-plus"></i> Create
                                 <i class="mdi mdi-chevron-down"></i>
                             </a>
                             <div class="dropdown-menu">
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/tour-package/new') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/tour-package/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
-                                    <span>Tour Package</span>
+                                    <span>New Package</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/destination/new') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/destination/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
-                                    <span>Destination</span>
+                                    <span>New Destination</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/adventure/new') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/adventure/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
-                                    <span>Adventure</span>
+                                    <span>New Adventure</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/event/new') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/event/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
-                                    <span>Event</span>
+                                    <span>New Event</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="{{ url('dashboard/slider/create') }}" class="dropdown-item">
+                                    <i class="fe-file-plus"></i>
+                                    <span>New Slider</span>
                                 </a>
 
                             </div>

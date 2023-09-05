@@ -81,17 +81,6 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/messages') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $messages_total ?? '' }}
-                                        </span>
-                                        <span> Messages</span>
-                                    </a>
-                                </li>
-                                <!-- menu item end -->
-
                                 <li class="@if(Request::segment(2) == 'sliders') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/sliders') }}">
                                         <i class="fa-solid fa-tags"></i>
@@ -99,6 +88,19 @@
                                             {{ $sliders_total ?? '' }}
                                         </span>
                                         <span> Sliders</span>
+                                    </a>
+                                </li>
+                                <!-- menu item end -->
+                                
+                                <li class="menu-title mt-2">Visitor Information</li>
+
+                                <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/messages') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $messages_total ?? '' }}
+                                        </span>
+                                        <span> Messages</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
