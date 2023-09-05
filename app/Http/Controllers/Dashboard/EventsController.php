@@ -117,9 +117,9 @@ class EventsController extends Controller
                     // $request->picture->move(public_path('images/tour_events'), $pictureName);
 
                 $data->save();
-                
+
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
+                return redirect('dashboard/events/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -188,9 +188,9 @@ class EventsController extends Controller
                 }
 
                 $data->update();
-                
+
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
+                return redirect('dashboard/events/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
