@@ -24,11 +24,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                <a href="{{ url('dashboard/user/profile') }}" class="dropdown-item notify-item">
+                                {{-- <a href="{{ url('dashboard/user/profile') }}" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
                                     <span>Profile</span>
                                 </a>
-                                <div class="dropdown-divider"></div>
+                                <div class="dropdown-divider"></div> --}}
 
                                 <a href="#" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fe-log-out"></i>
@@ -96,31 +96,31 @@
                             <div class="dropdown-menu">
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/tour-package/create') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/packages/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
                                     <span>New Package</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/destination/create') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/destinations/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
                                     <span>New Destination</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/adventure/create') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/adventures/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
                                     <span>New Adventure</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/event/create') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/events/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
                                     <span>New Event</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="{{ url('dashboard/slider/create') }}" class="dropdown-item">
+                                <a href="{{ url('dashboard/sliders/create') }}" class="dropdown-item">
                                     <i class="fe-file-plus"></i>
                                     <span>New Slider</span>
                                 </a>

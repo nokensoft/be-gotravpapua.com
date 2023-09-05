@@ -21,13 +21,14 @@ use App\Models\LayananOnline;
 use App\Models\InformasiLingkungan;
 use App\Models\Faq;
 
-class BerandaController extends Controller
+class HomeController extends Controller
 {
     
     public function index()
     {
 
-        return redirect('login');
+        // return redirect('login');
+        echo "Visitor > Home";
     }
 
 }

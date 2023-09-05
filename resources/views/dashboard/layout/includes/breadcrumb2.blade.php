@@ -7,7 +7,11 @@
                                             <li class="breadcrumb-item active">{{ ucfirst(Request::segment(2)) }}</li>
                                         </ol>
                                     </div>
+                                    @if(Request::segment(3) == 'create') 
+                                    <h4 class="page-title">{{ ucfirst(Request::segment(2)) }} <i class="fa-solid fa-arrow-right"></i><span class="font-weight-bold"> {{ ucfirst(Request::segment(3)) }} New</span> </h4>
+                                    @else 
                                     <h4 class="page-title">{{ ucfirst(Request::segment(2)) }}</h4>
+                                    @endif
                                 </div>
                             </div>
                         </div>

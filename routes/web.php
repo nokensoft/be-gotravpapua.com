@@ -3,7 +3,7 @@
 // VISITOR CONTROLLERS
 
 use App\Http\Controllers\dashboard\PesanController;
-use App\Http\Controllers\Visitor\BerandaController;
+use App\Http\Controllers\Visitor\HomeController;
 
 // dashboard CONTROLLERS
 use App\Http\Controllers\DashboardController;
@@ -26,61 +26,11 @@ use Illuminate\Support\Facades\App;
 
 // Mengalihkan he alamat beranda
 Route::get('/', function () {
-    return redirect('/beranda');
+    return redirect('/login');
 });
 
 // BERANDA
-Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
-
-// HALAMAN
-
-/*
-| HALAMAN
-| menampilkan halaman secara detail berdasarkan slug
-| halaman dipasang secara manual menggunakan manajemen url/link halaman
-*/
-Route::get('/halaman', [BerandaController::class, 'halamanIndex'])->name('halaman');
-Route::get('/halaman/{slug}', [BerandaController::class, 'halamanShow'])->name('halaman.slug');
-
-/*
-| BERITA
-| - menampilkan semua berita
-| - menampilkan berita berdasarkan slug
-| - menampilkan berita berdasarkan kategori
-*/
-
-// - menampilkan semua berita
-Route::get('/berita', [BerandaController::class, 'beritaIndex'])->name('berita');
-
-// - menampilkan berita berdasarkan slug
-Route::get('/berita/{slug}', [BerandaController::class, 'beritaShow'])->name('berita.slug');
-
-// - menampilkan berita berdasarkan kategori
-Route::get('/berita/kategori/{kategori}', [BerandaController::class, 'beritaKategori'])->name('berita.kategori.slug');
-
-// Json berita
-Route::post('/berita-json', [BerandaController::class, 'beritaJson'])->name('berita-json');
-
-
-/*
-| KONTAK
-| menampilkan halaman kontak
-|
-*/
-
-Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
-
-
-
-/*
-| PENGAJUAN / PESAN
-|
-*/
-
-Route::post('/pesan', [BerandaController::class, 'pesanStore'])->name('visitor.pesan.store');
-Route::get('/pesan/terkirim', [BerandaController::class, 'pesanTerkirim'])->name('visitor.pesan.terkirim');
-Route::get('/reload-captcha', [BerandaController::class, 'reloadCaptcha']);
-
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Auth::routes([

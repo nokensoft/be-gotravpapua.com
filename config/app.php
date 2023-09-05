@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Website Dinas Lingkungan Hidup Kota Jayapura'),
+    'name' => env('APP_NAME', 'GOTRAV Papua Travel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
     */
 
     // 'timezone' => 'UTC',
-    'timezone' => 'Asia/Jakarta',
+    'timezone' => 'Asia/Jayapura',
 
     /*
     |--------------------------------------------------------------------------
