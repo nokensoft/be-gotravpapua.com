@@ -42,13 +42,13 @@
                         <div class="p-2 px-3">
 
                             <div class="d-flex">
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->slug_tour_event) }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
+                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
                                     <i class="fa-solid fa-eye"></i> Preview
                                 </a>
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->slug_tour_event) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                     <i class="fa-solid fa-reply"></i>
                                 </a>
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->slug_tour_event) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                     <i class="fa-solid fa-edit"></i>
                                 </a>
 

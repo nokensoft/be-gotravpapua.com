@@ -114,9 +114,9 @@ class AdventuresController extends Controller
 
                 $data->save();
                 $request->picture->move(public_path('images/tour_adventures'), $pictureName);
-                
+
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/adventures/' . $data->slug_adventure . '/show');
+                return redirect('dashboard/adventures/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -186,9 +186,9 @@ class AdventuresController extends Controller
                 // }
 
                 $data->update();
-                
+
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/adventures/' . $data->slug_adventure . '/show');
+                return redirect('dashboard/adventures/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
