@@ -32,15 +32,15 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>
-                                    @if (empty($data))
-                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
+                                    @if (empty($data->picture))
+                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" style="width:200px" class="border shadow">
                                     @else
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>
                                 <td>{{ Str::limit($data->body, 20, '...') }}</td>
-                                <td>{{ Str::limit($data->body, 20, '...') }}</td>
+                                <td>{{ Str::limit($data->description, 20, '...') }}</td>
                                 <td>{{ $data->status}}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">

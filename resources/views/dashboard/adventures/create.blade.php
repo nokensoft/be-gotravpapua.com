@@ -33,7 +33,7 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="description">Body</label>
+                            <label for="description">Body <span class="text-danger">*</span></label>
                             <textarea id="description" name="body" rows="8" class="form-control rounded-0" placeholder="Type..."></textarea>
 
                             @if ($errors->has('body'))
@@ -46,7 +46,7 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="description">Description</label>
+                            <label for="description">Description <span class="text-danger">*</span></label>
                             <textarea id="description" name="description" rows="2" class="form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
 
                             @if ($errors->has('description'))
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description">Status</label>
+                            <label for="description">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control" id="">
                                 <option value="" hidden>Select</option>
                                 <option value="Publish">Publish</option>
@@ -78,7 +78,7 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Image<span class="text-danger">*</span></label>
+                            <label for="gambar" class="form-label d-block">Image </label>
                             <div class="mb-2">
                                 <img src="{{ asset('images/tour_events/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>

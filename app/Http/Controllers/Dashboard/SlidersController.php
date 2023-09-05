@@ -82,11 +82,16 @@ class SlidersController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -97,28 +102,28 @@ class SlidersController extends Controller
                 $data = new TourSliders();
 
                 $data->title = $request->title;
+                $data->slug_slider = Str::slug($data->title);
                 $data->description = $request->description;
-                
+                $data->status = $request->status;
                 $data->user_id = Auth::user()->id;
 
-                $data->picture = '00.png';
-
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_sliders');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/tour_sliders'), $pictureName);
-                // }
+                if ($request->picture) {
+                    $pictureName = $data->slug_slider .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_sliders');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_sliders'), $pictureName);
+                }
 
                 $data->save();
-                
+
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/sliders/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
+                dd($th);
                 Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
@@ -147,11 +152,16 @@ class SlidersController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -161,21 +171,23 @@ class SlidersController extends Controller
             try {
                 $data = TourSliders::find($id);
                 $data->title = $request->title;
-
                 $data->description = $request->description;
+                $data->slug_slider = Str::slug($data->title);
+                $data->user_id = Auth::user()->id;
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_sliders');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/slider'), $pictureName);
-                // }
+                if ($request->picture) {
+                    $pictureName = $data->slug_slider .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_sliders');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_sliders'), $pictureName);
+                }
+
 
                 $data->update();
-                
+
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
                 return redirect('dashboard/sliders/' . $data->id . '/show');
 
@@ -209,11 +221,11 @@ class SlidersController extends Controller
     {
         $data = TourSliders::onlyTrashed()->findOrFail($id);
 
-        // $path = public_path('tour_sliders/' . $data->picture);
+        $path = public_path('images/tour_sliders/' . $data->picture);
 
-        // if (file_exists($path)) {
-        //     File::delete($path);
-        // }
+        if (file_exists($path)) {
+            File::delete($path);
+        }
 
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);

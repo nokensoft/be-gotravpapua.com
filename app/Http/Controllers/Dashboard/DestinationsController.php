@@ -64,7 +64,7 @@ class DestinationsController extends Controller
     // trash
     public function trash()
     {
-        // 
+        //
         $datas = TourDestinations::onlyTrashed()->paginate(5);
         return view('dashboard.destinations.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -82,11 +82,18 @@ class DestinationsController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'body.required' => 'This is a reaquired field',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -97,26 +104,25 @@ class DestinationsController extends Controller
                 $data = new TourDestinations();
 
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->slug);
-
+                $data->slug_tour_destination = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
-
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                $data->picture = '00.png';
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_destinations');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/tour_destinations'), $pictureName);
-                // }
+                if ($request->picture) {
+                    $pictureName = $data->slug_tour_destination .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_destinations');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_destinations'), $pictureName);
+                }
 
                 $data->save();
-                
+
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/destinations/' . $data->id . '/show');
 
@@ -146,16 +152,23 @@ class DestinationsController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         $validator = Validator::make(
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'body.required' => 'This is a reaquired field',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -164,24 +177,26 @@ class DestinationsController extends Controller
         } else {
             try {
                 $data = TourDestinations::find($id);
-                
+
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->slug);
-                
+                $data->slug_tour_destination = Str::slug($data->title);
+                $data->user_id = Auth::user()->id;
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_destinations');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/slider'), $pictureName);
-                // }
+                if ($request->picture) {
+                    $pictureName = $data->slug_tour_destination .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_destinations');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_destinations'), $pictureName);
+                }
 
                 $data->update();
-                
+
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
                 return redirect('dashboard/destinations/' . $data->id . '/show');
 
@@ -201,7 +216,7 @@ class DestinationsController extends Controller
         return to_route('dashboard.destinations.trash');
     }
 
-    // restore    
+    // restore
     public function restore($id)
     {
         $data = TourDestinations::onlyTrashed()->where('id', $id);
@@ -214,12 +229,12 @@ class DestinationsController extends Controller
     public function delete($id)
     {
         $data = TourDestinations::onlyTrashed()->findOrFail($id);
-        
-        // $path = public_path('tour_destinations/' . $data->picture);
 
-        // if (file_exists($path)) {
-        //     File::delete($path);
-        // }
+        $path = public_path('images/tour_destinations/' . $data->picture);
+
+        if (file_exists($path)) {
+            File::delete($path);
+        }
 
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);

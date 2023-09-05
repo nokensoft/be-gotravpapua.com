@@ -13,8 +13,8 @@
 
                 <div class="row">
                     <div class="col-lg-3">
-                        @if (empty($data))
-                        <img src="{{ asset('images/tour_'.Request::segment(2).'/00.jpg') }}" alt="Image" class="border shadow w-100">
+                        @if (empty($data->picture))
+                        <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" class="border shadow w-100">
                         @else
                         <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" class="border shadow w-100">
                         @endif

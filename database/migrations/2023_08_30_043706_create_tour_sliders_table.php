@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tour_sliders', function (Blueprint $table) {
-            
+
             $table->id();
 
             $table->bigInteger('user_id')->unsigned();
-            
+
             $table->string('title')->nullable();
-            $table->string('slug')->nullable();
+            // $table->string('slug')->nullable();
 
             $table->string('description')->nullable();
             $table->string('picture')->nullable();

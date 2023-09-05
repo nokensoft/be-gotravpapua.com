@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tour_packages', function (Blueprint $table) {
-            
+
             $table->id();
 
             $table->string('title')->nullable();
-            $table->string('slug')->nullable();
-            
+            // $table->string('slug')->nullable();
+
             $table->text('description')->nullable();
             $table->mediumText('body')->nullable();
 

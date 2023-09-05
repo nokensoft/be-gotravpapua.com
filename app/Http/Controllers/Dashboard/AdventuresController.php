@@ -89,7 +89,7 @@ class AdventuresController extends Controller
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -105,15 +105,18 @@ class AdventuresController extends Controller
                 $data->status = $request->status;
                 $data->description = $request->description;
 
-                    $pictureName = $data->slug . '.' . $request->picture->extension();
+                if ($request->picture) {
+                    $pictureName = $data->slug_adventure .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_adventures');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
                     endif;
                     $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+                }
 
                 $data->save();
-                $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/adventures/' . $data->id . '/show');
@@ -173,17 +176,17 @@ class AdventuresController extends Controller
                 $data->status = $request->status;
                 $data->description = $request->description;
 
-                $data->picture = '00.png'; // default picture
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('images/tour_adventures');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('images/tour_adventures'), $pictureName);
-                // }
+
+                if ($request->picture) {
+                    $pictureName = $data->slug_adventure .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_adventures');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+                }
 
                 $data->update();
 
@@ -219,13 +222,11 @@ class AdventuresController extends Controller
     public function delete($id)
     {
         $data = TourAdventures::onlyTrashed()->findOrFail($id);
+        $path = public_path('images/tour_adventures/' . $data->picture);
 
-        // $path = public_path('tour_adventures/' . $data->picture);
-
-        // if (file_exists($path)) {
-        //     File::delete($path);
-        // }
-
+        if (file_exists($path)) {
+            File::delete($path);
+        }
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
         return redirect()->back();

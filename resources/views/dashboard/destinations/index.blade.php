@@ -20,28 +20,28 @@
                                 <th>No</th>
                                 <th>Picture</th>
                                 <th>Title</th>
-                                <th>Item</th>
-                                <th>Item</th>
-                                <th>Item</th>
+                                <th>Body</th>
+                                <th>Description</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                    
+
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>
-                                    @if (empty($data))   
+                                    @if (empty($data))
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
                                     @else
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>
-                                <td>{{ 'item' }}</td>
-                                <td>{{ 'item' }}</td>
-                                <td>{{ 'item' }}</td>
+                                <td>{{ Str::limit($data->body, 20, '...') }}</td>
+                                <td>{{ Str::limit($data->description, 20, '...') }}</td>
+                                <td>{{ $data->status}}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 
@@ -77,16 +77,16 @@
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                     </form>
-                                </td> 
+                                </td>
                                 @endif
-                            </tr>            
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
 
                 </div>
                 <!-- .table-responsive END -->
-                
+
             </div>
             <!-- .card-body END -->
         </div>
@@ -95,6 +95,6 @@
     <!-- .col END -->
 </div>
 <!-- .row END -->
-    
+
 @endsection
 @include('dashboard.layout.includes.index-script-footer')

@@ -40,7 +40,7 @@
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>
                                 <td>{{ Str::limit($data->body, 20, '...') }}</td>
-                                <td>{{ Str::limit($data->body, 20, '...') }}</td>
+                                <td>{{ Str::limit($data->description, 20, '...') }}</td>
                                 <td>{{ $data->status}}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">

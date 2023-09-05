@@ -78,7 +78,7 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="gambar" class="form-label d-block">Image<span class="text-danger">*</span></label>
+                                <label for="gambar" class="form-label d-block">Image</label>
                                 <div class="mb-2">
                                     <img src="{{ asset('images/tour_events/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 </div>
@@ -124,6 +124,7 @@
 <!-- .row END -->
 
 @endsection
+
 @push('script-footer')
 
 <script type="text/javascript">

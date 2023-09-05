@@ -89,7 +89,11 @@ class EventsController extends Controller
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'body.required' => 'This is a reaquired field',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -106,15 +110,15 @@ class EventsController extends Controller
                 $data->status = $request->status;
                 $data->description = $request->description;
 
-                $data->picture = '00.png'; // default picture
-
-                    // $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
-                    // $path = public_path('images/tour_events');
-                    // if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                    //     unlink($path . '/' . $data->picture);
-                    // endif;
-                    // $data->picture = $pictureName;
-                    // $request->picture->move(public_path('images/tour_events'), $pictureName);
+                    if ($request->picture) {
+                        $pictureName = $data->slug_tour_event .'-'. time() .'.' . $request->picture->extension();
+                        $path = public_path('images/tour_events');
+                        if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                            unlink($path . '/' . $data->picture);
+                        endif;
+                        $data->picture = $pictureName;
+                        $request->picture->move(public_path('images/tour_events'), $pictureName);
+                    }
 
                 $data->save();
 
@@ -159,7 +163,10 @@ class EventsController extends Controller
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'body.required' => 'This is a reaquired field',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -178,7 +185,7 @@ class EventsController extends Controller
 
 
                 if ($request->picture) {
-                    $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
+                    $pictureName = $data->slug_tour_event .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_events');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
@@ -222,11 +229,11 @@ class EventsController extends Controller
     {
         $data = TourEvents::onlyTrashed()->findOrFail($id);
 
-        // $path = public_path('tour_events/' . $data->picture);
+        $path = public_path('images/tour_events/' . $data->picture);
 
-        // if (file_exists($path)) {
-        //     File::delete($path);
-        // }
+        if (file_exists($path)) {
+            File::delete($path);
+        }
 
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);

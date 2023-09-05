@@ -82,10 +82,18 @@ class PackagesController extends Controller
             $request->all(),
             [
                 'title' => 'required',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'body.required' => 'This is a reaquired field',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -96,24 +104,23 @@ class PackagesController extends Controller
                 $data = new TourPackages();
 
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->title);
-
-                $data->description = $request->description;
-
-                $data->picture = '00.png'; // default picture
-                
+                $data->slug_tour_package = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
-
-                    // $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
-                    // $path = public_path('images/tour_packages');
-                    // if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                    //     unlink($path . '/' . $data->picture);
-                    // endif;
-                    // $data->picture = $pictureName;
-                    // $request->picture->move(public_path('images/tour_packages'), $pictureName);
+                $data->body = $request->body;
+                $data->status = $request->status;
+                $data->description = $request->description;
+                if ($request->picture) {
+                    $pictureName = $data->slug_tour_package .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_packages');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_packages'), $pictureName);
+                }
 
                 $data->save();
-                
+
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/packages/' . $data->id . '/show');
 
@@ -148,10 +155,18 @@ class PackagesController extends Controller
             $request->all(),
             [
                 'title' => 'required',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'body.required' => 'This is a reaquired field',
+                'status.required' => 'This is a reaquired field',
+                'description.required' => 'This is a reaquired field',
+                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 
@@ -162,19 +177,21 @@ class PackagesController extends Controller
                 $data = TourPackages::find($id);
 
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->title);
-                
+                $data->slug_tour_package = Str::slug($data->title);
+                $data->user_id = Auth::user()->id;
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
-                //     $path = public_path('images/tour_packages');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('images/tour_packages'), $pictureName);
-                // }
+                if ($request->picture) {
+                    $pictureName = $data->slug_tour_package .'-'. time() .'.' . $request->picture->extension();
+                    $path = public_path('images/tour_packages');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_packages'), $pictureName);
+                }
 
                 $data->update();
 
@@ -211,11 +228,11 @@ class PackagesController extends Controller
     {
         $data = TourPackages::onlyTrashed()->findOrFail($id);
 
-        // $path = public_path('tour_packages/' . $data->picture);
+        $path = public_path('images/tour_packages/' . $data->picture);
 
-        // if (file_exists($path)) {
-        //     File::delete($path);
-        // }
+        if (file_exists($path)) {
+            File::delete($path);
+        }
 
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
