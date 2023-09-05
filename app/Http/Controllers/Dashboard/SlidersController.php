@@ -64,7 +64,7 @@ class SlidersController extends Controller
     // trash
     public function trash()
     {
-        // 
+        //
         $datas = TourSliders::onlyTrashed()->paginate(5);
         return view('dashboard.sliders.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -145,7 +145,7 @@ class SlidersController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         $validator = Validator::make(
             $request->all(),
             [
@@ -163,10 +163,10 @@ class SlidersController extends Controller
         } else {
             try {
                 $data = TourSliders::find($id);
-                
+
                 $data->title = $request->title;
                 $data->slug = Str::slug($data->slug);
-                
+
                 $data->description = $request->description;
 
                 // if ($request->picture) {
@@ -200,7 +200,7 @@ class SlidersController extends Controller
         return to_route('dashboard.sliders.trash');
     }
 
-    // restore    
+    // restore
     public function restore($id)
     {
         $data = TourSliders::onlyTrashed()->where('id', $id);
@@ -213,7 +213,7 @@ class SlidersController extends Controller
     public function delete($id)
     {
         $data = TourSliders::onlyTrashed()->findOrFail($id);
-        
+
         // $path = public_path('tour_sliders/' . $data->picture);
 
         // if (file_exists($path)) {

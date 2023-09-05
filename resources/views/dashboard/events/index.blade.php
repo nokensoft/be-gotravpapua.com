@@ -27,12 +27,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                    
+
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>
-                                    @if (empty($data))   
+                                    @if (empty($data))
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
                                     @else
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
@@ -63,10 +63,10 @@
                                 </td>
                                 @else
                                 <td class="d-flex">
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
+                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->slug_tour_event) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->slug_tour_event) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
 
@@ -77,16 +77,16 @@
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                     </form>
-                                </td> 
+                                </td>
                                 @endif
-                            </tr>            
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
 
                 </div>
                 <!-- .table-responsive END -->
-                
+
             </div>
             <!-- .card-body END -->
         </div>
@@ -95,6 +95,6 @@
     <!-- .col END -->
 </div>
 <!-- .row END -->
-    
+
 @endsection
 @include('dashboard.layout.includes.index-script-footer')

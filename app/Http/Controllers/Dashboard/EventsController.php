@@ -64,7 +64,7 @@ class EventsController extends Controller
     // trash
     public function trash()
     {
-        // 
+        //
         $datas = TourEvents::onlyTrashed()->paginate(5);
         return view('dashboard.events.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -82,11 +82,14 @@ class EventsController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -97,30 +100,26 @@ class EventsController extends Controller
                 $data = new TourEvents();
 
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->slug);
-
+                $data->slug_tour_event = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
-
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                $data->picture = '00.png';
-
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_events');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/tour_events'), $pictureName);
-                // }
+                    $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
+                    $path = public_path('images/tour_events');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
 
                 $data->save();
-
+                $request->picture->move(public_path('images/tour_events'), $pictureName);
                 Alert::toast('Created!', 'Success');
-                return redirect('dashboard/events/' . $data->id . '/show');
+                return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
 
             } catch (\Throwable $th) {
+                dd($th);
                 Alert::toast('Failed', 'Oops! Something is wrong...');
                 return redirect()->back();
             }
@@ -131,14 +130,14 @@ class EventsController extends Controller
 
     public function show($id)
     {
-        $data = TourEvents::where('id', $id)->first();
+        $data = TourEvents::where('slug_tour_event', $id)->first();
         return view('dashboard.events.show', compact('data'));
     }
 
     // edit
     public function edit($id)
     {
-        $data = TourEvents::where('id', $id)->first();
+        $data = TourEvents::where('slug_tour_event', $id)->first();
         return view('dashboard.events.edit', compact('data'));
     }
 
@@ -146,16 +145,19 @@ class EventsController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         $validator = Validator::make(
             $request->all(),
             [
                 'title' => 'required',
-                // 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'body' => 'required',
+                'status' => 'required',
+                'description' => 'required',
+                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                // 'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -164,26 +166,29 @@ class EventsController extends Controller
         } else {
             try {
                 $data = TourEvents::find($id);
-                
+
                 $data->title = $request->title;
-                $data->slug = Str::slug($data->slug);
-                
+                $data->slug_tour_event = Str::slug($data->title);
+                $data->user_id = Auth::user()->id;
+                $data->body = $request->body;
+                $data->status = $request->status;
                 $data->description = $request->description;
 
-                // if ($request->picture) {
-                //     $pictureName = $data->slug . '.' . $request->picture->extension();
-                //     $path = public_path('picture/tour_events');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = $pictureName;
-                //     $request->picture->move(public_path('picture/slider'), $pictureName);
-                // }
+
+                if ($request->picture) {
+                    $pictureName = $data->slug_tour_event . '.' . $request->picture->extension();
+                    $path = public_path('images/tour_events');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $pictureName;
+                    $request->picture->move(public_path('images/tour_events'), $pictureName);
+                }
 
                 $data->update();
 
                 Alert::toast('Updated!', 'Success');
-                return redirect('dashboard/events/' . $data->id . '/show');
+                return redirect('dashboard/events/' . $data->slug_tour_event . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed', 'Oops! Something is wrong...');
@@ -201,7 +206,7 @@ class EventsController extends Controller
         return to_route('dashboard.events.trash');
     }
 
-    // restore    
+    // restore
     public function restore($id)
     {
         $data = TourEvents::onlyTrashed()->where('id', $id);
@@ -214,7 +219,7 @@ class EventsController extends Controller
     public function delete($id)
     {
         $data = TourEvents::onlyTrashed()->findOrFail($id);
-        
+
         // $path = public_path('tour_events/' . $data->picture);
 
         // if (file_exists($path)) {
