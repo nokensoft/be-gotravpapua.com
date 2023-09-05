@@ -5,21 +5,12 @@ namespace App\Providers;
 // MODELS
 use App\Models\Settings;
 use App\Models\User;
-use App\Models\students;
-use App\Models\Program;
-
-use App\Models\Banner;
-use App\Models\Faq;
-use App\Models\Halaman;
-use App\Models\LayananOnline;
-use App\Models\LinkTerkait;
-use App\Models\Berita\Berita;
-use App\Models\Berita\KategoriBerita;
-use App\Models\InformasiLingkungan;
-use App\Models\Pesan;
-use App\Models\VisitorCounter;
-// use App\Models\Pesan;
-
+use App\Models\TourAdventures;
+use App\Models\TourDestinations;
+use App\Models\TourEvents;
+use App\Models\TourMessages;
+use App\Models\TourPackages;
+use App\Models\TourSliders;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -65,10 +56,14 @@ class AppServiceProvider extends ServiceProvider
             // Settings
             'settings' => Settings::first(),
 
-            // // Totals
-            // 'dashboard_total_packages' => Students::where('status','Publish')->count(),
-            // 'dashboard_total_packages_draft' => Students::where('status','Draft')->count(),
-            // 'dashboard_total_packages_semua' => Students::count(),
+            // Counts
+            'packages_total' => TourPackages::count(),
+            'destinations_total' => TourDestinations::count(),
+            'adventures_total' => TourAdventures::count(),
+            'events_total' => TourEvents::count(),
+            'messages_total' => TourMessages::count(),
+            'sliders_total' => TourSliders::count(),
+            'users_total' => User::count(),
 
         ]);
 

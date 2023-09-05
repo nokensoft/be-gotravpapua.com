@@ -41,7 +41,7 @@
                                     <a href="{{ url(Request::segment(1).'/packages') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $packages_total ?? '' }}
                                         </span>
                                         <span> Packages</span>
                                     </a>
@@ -52,7 +52,7 @@
                                     <a href="{{ url(Request::segment(1).'/destinations') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $destinations_total ?? '' }}
                                         </span>
                                         <span> Destinations</span>
                                     </a>
@@ -63,7 +63,7 @@
                                     <a href="{{ url(Request::segment(1).'/adventures') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $adventures_total ?? '' }}
                                         </span>
                                         <span> Adventures</span>
                                     </a>
@@ -74,7 +74,7 @@
                                     <a href="{{ url(Request::segment(1).'/events') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $events_total ?? '' }}
                                         </span>
                                         <span> Events</span>
                                     </a>
@@ -85,7 +85,7 @@
                                     <a href="{{ url(Request::segment(1).'/messages') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $messages_total ?? '' }}
                                         </span>
                                         <span> Messages</span>
                                     </a>
@@ -96,9 +96,9 @@
                                     <a href="{{ url(Request::segment(1).'/sliders') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $sliders_total ?? '' }}
                                         </span>
-                                        <span> Slider</span>
+                                        <span> Sliders</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
@@ -109,7 +109,7 @@
                                     <a href="{{ url(Request::segment(1).'/users') }}">
                                         <i class="fa-solid fa-users"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $users_total ?? '' }}
                                         </span>
                                         <span> Users </span>
                                     </a>
@@ -119,9 +119,6 @@
                                 <li class="@if(Request::segment(2) == 'settings') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/settings') }}">
                                         <i class="fa-solid fa-gear"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
-                                        </span>
                                         <span> Settings </span>
                                     </a>
                                 </li>
