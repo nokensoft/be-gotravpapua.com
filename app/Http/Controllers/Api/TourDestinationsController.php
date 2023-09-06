@@ -18,10 +18,9 @@ class TourDestinationsController extends Controller
         ]);
     }
 
-
     public function show($slug)
     {
-        $data = TourDestinations::where('slug_tour_destination','=', $slug)->with('user')->first();
+        $data = TourDestinations::where('slug','=', $slug)->with('user')->first();
         return response()->json([
             'status' => true,
             'message' => 'Success',

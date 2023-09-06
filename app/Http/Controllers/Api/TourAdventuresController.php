@@ -23,7 +23,7 @@ class TourAdventuresController extends Controller
 
     public function show($slug)
     {
-        $data = TourAdventures::where('slug_adventures','=', $slug)->with('user')->first();
+        $data = TourAdventures::where('slug','=', $slug)->with('user')->first();
 
         return response()->json([
             'status' => true,

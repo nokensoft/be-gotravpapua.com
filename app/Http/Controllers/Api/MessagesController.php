@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use App\Models\Message;
-use App\Http\Resources\PostResource;
+use App\Models\TourMessages;
 use Illuminate\Support\Facades\Validator;
 
 class MessagesController extends Controller
@@ -18,7 +15,7 @@ class MessagesController extends Controller
         return response()->json([
             'status'=>true,
             'message'=>'Data Loaded',
-            'data'=> Message::orderByDesc('created_at')->get(),
+            'data'=> TourMessages::orderByDesc('created_at')->get(),
         ]);
     }
 
@@ -36,7 +33,7 @@ class MessagesController extends Controller
                 'data' => null
             ]);
         }else{
-            $post   = new Message;
+            $post   = new TourMessages;
             $post->name    = $request->name;
             $post->message      = $request->message;
 

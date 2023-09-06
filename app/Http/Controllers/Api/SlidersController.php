@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Sliders;
+use App\Models\TourSliders;
 
 class SlidersController extends Controller
 {
     public function index()
     {
-        $data = Sliders::get();
+        $data = TourSliders::get();
 
         return response()->json([
             'status' => true,
@@ -22,7 +22,7 @@ class SlidersController extends Controller
 
     public function show($slug)
     {
-        $data = Sliders::where('slug_slider','=', $slug)->first();
+        $data = TourSliders::where('slug','=', $slug)->first();
         return response()->json([
             'status' => true,
             'message' => 'Success',

@@ -37,7 +37,7 @@
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
                                     @endif
                                 </td>
-                                <td>{{ $data->title ?? '' }}</td>
+                                <td>{{ $data->title ?? '' }}  </td>
                                 <td>{!! Str::limit($data->description, 20, '...') !!}</td>
                                 <td>{{ $data->status}}</td>
                                 @if (Request::segment(3) == 'trash')
