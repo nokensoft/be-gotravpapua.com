@@ -34,7 +34,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Body <span class="text-danger">*</span></label>
-                            <textarea id="description" name="body" rows="8" class="form-control rounded-0" placeholder="Type..."></textarea>
+                            <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
 
                             @if ($errors->has('body'))
                             <span class="text-danger" role="alert">
@@ -47,7 +47,7 @@
 
                         <div class="mb-3">
                             <label for="description">Description <span class="text-danger">*</span></label>
-                            <textarea id="description" name="description" rows="2" class="form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
+                            <textarea id="description" name="description" rows="2" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
 
                             @if ($errors->has('description'))
                             <span class="text-danger" role="alert">
@@ -125,19 +125,22 @@
 
 @endsection
 @push('script-footer')
-
+<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
-
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+    CKEDITOR.config.height='400px';
     $(document).ready(function (e) {
-               $('#gambar').change(function(){
+         ('#gambar').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
                   $('#preview-gambar').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(this.files[0]);
-               });
+        });
 
-            });
+    });
 </script>
 
 @endpush
