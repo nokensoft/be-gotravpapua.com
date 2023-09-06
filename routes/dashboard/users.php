@@ -1,7 +1,7 @@
 <?php
 
 // DASBOR CONTROLLERS
-use App\Http\Controllers\Dasbor\UserController;
+use App\Http\Controllers\Dashboard\UserController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
     | users
     |--------------------------------------------------------------------------
     */
-    Route::group(['middleware' => ['role:administrator']], function () { 
-    
+    Route::group(['middleware' => ['role:administrator']], function () {
+
         Route::controller(UserController::class)->group(function(){
 
             // index

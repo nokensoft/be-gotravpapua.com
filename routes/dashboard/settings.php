@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
     | settings
     |--------------------------------------------------------------------------
     */
-    Route::group(['middleware' => ['role:administrator']], function () { 
-    
+    Route::group(['middleware' => ['role:administrator']], function () {
+
         Route::controller(SettingsController::class)->group(function(){
 
             // index

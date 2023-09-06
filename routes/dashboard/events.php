@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dashboard\EventsController;
+use App\Http\Controllers\Dashboard\EventsController;
 use Illuminate\Support\Facades\Route;
 
     /*
@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Route;
     | index, publish, draft, create, store, show, edit, update, destroy, trash, restore, delete
     |--------------------------------------------------------------------------
     */
-    Route::group(['middleware' => ['role:administrator']], function () { 
-    
+    Route::group(['middleware' => ['role:administrator']], function () {
+
         Route::controller(EventsController::class)->group(function(){
 
             // index
