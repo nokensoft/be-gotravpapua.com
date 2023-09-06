@@ -104,14 +104,14 @@ class EventsController extends Controller
                 $data = new TourEvents();
 
                 $data->title = $request->title;
-                $data->slug_tour_event = Str::slug($data->title);
+                $data->slug = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
                 $data->body = $request->body;
                 $data->status = $request->status;
                 $data->description = $request->description;
 
                     if ($request->picture) {
-                        $pictureName = $data->slug_tour_event .'-'. time() .'.' . $request->picture->extension();
+                        $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
                         $path = public_path('images/tour_events');
                         if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                             unlink($path . '/' . $data->picture);
@@ -177,7 +177,7 @@ class EventsController extends Controller
                 $data = TourEvents::find($id);
 
                 $data->title = $request->title;
-                $data->slug_tour_event = Str::slug($data->title);
+                $data->slug = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
                 $data->body = $request->body;
                 $data->status = $request->status;
@@ -185,7 +185,7 @@ class EventsController extends Controller
 
 
                 if ($request->picture) {
-                    $pictureName = $data->slug_tour_event .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_events');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);

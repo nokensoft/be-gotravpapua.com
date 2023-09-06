@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('title')->nullable();
-            // $table->string('slug')->nullable();
+            $table->string('slug')->nullable();
 
             $table->text('description')->nullable();
             $table->mediumText('body')->nullable();

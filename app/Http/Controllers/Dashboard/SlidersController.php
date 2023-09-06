@@ -102,13 +102,13 @@ class SlidersController extends Controller
                 $data = new TourSliders();
 
                 $data->title = $request->title;
-                $data->slug_slider = Str::slug($data->title);
+                $data->slug = Str::slug($data->title);
                 $data->description = $request->description;
                 $data->status = $request->status;
                 $data->user_id = Auth::user()->id;
 
                 if ($request->picture) {
-                    $pictureName = $data->slug_slider .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_sliders');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
@@ -172,11 +172,11 @@ class SlidersController extends Controller
                 $data = TourSliders::find($id);
                 $data->title = $request->title;
                 $data->description = $request->description;
-                $data->slug_slider = Str::slug($data->title);
+                $data->slug = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
 
                 if ($request->picture) {
-                    $pictureName = $data->slug_slider .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_sliders');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);

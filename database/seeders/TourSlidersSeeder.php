@@ -21,6 +21,7 @@ class TourSlidersSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png',
             'status' => 'Publish',
+            'slug' => 'slider-1'
          ]);
 
          TourSliders::create([
@@ -29,6 +30,7 @@ class TourSlidersSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '02.png',
             'status' => 'Publish',
+            'slug' => 'slider-2'
          ]);
 
          TourSliders::create([
@@ -37,6 +39,7 @@ class TourSlidersSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '03.png',
             'status' => 'Draft',
+            'slug' => 'slider-3'
          ]);
 
     }

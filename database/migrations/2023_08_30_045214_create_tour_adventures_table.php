@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tour_adventures', function (Blueprint $table) {
-           
+
             $table->id();
 
             $table->string('title')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('picture')->nullable();
 
             $table->enum('status',['Publish','Draft']);
-            
+
             $table->bigInteger('user_id')->unsigned();
 
             $table->softDeletes();

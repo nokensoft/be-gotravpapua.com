@@ -23,7 +23,7 @@ class TourDestinationsSeeder extends Seeder
             'picture' => '01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug' => 'lorem-lpsum-1'
+
          ]);
 
          TourDestinations::create([
@@ -34,7 +34,7 @@ class TourDestinationsSeeder extends Seeder
             'picture' => '01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug' => 'lorem-lpsum-2'
+
          ]);
     }
 }

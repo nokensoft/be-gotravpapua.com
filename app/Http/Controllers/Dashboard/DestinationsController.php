@@ -104,7 +104,7 @@ class DestinationsController extends Controller
                 $data = new TourDestinations();
 
                 $data->title = $request->title;
-                $data->slug_tour_destination = Str::slug($data->title);
+                $data->slug = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
                 $data->body = $request->body;
                 $data->status = $request->status;
@@ -112,7 +112,7 @@ class DestinationsController extends Controller
 
 
                 if ($request->picture) {
-                    $pictureName = $data->slug_tour_destination .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_destinations');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
@@ -179,14 +179,14 @@ class DestinationsController extends Controller
                 $data = TourDestinations::find($id);
 
                 $data->title = $request->title;
-                $data->slug_tour_destination = Str::slug($data->title);
+                $data->slug = Str::slug($data->title);
                 $data->user_id = Auth::user()->id;
                 $data->body = $request->body;
                 $data->status = $request->status;
                 $data->description = $request->description;
 
                 if ($request->picture) {
-                    $pictureName = $data->slug_tour_destination .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
                     $path = public_path('images/tour_destinations');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);

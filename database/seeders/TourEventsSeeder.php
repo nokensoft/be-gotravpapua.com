@@ -17,37 +17,34 @@ class TourEventsSeeder extends Seeder
     {
         TourEvents::create([
             'title' => 'Tour Event 1',
-            'slug' => 'tour-event-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug_tour_event' => 'lorem-lpsum-1'
+            'slug' => 'lorem-lpsum-1'
          ]);
 
 
          TourEvents::create([
             'title' => 'Tour Event 2',
-            'slug' => 'tour-event-2',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '02.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
-            'slug_tour_event' => 'lorem-lpsum-2'
+            'slug' => 'lorem-lpsum-2'
          ]);
 
 
          TourEvents::create([
             'title' => 'Tour Event 3',
-            'slug' => 'tour-event-3',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => '03.png' ,
             'status' => 'Draft' ,
             'user_id' => '1' ,
-            'slug_tour_event' => 'lorem-lpsum-3'
+            'slug' => 'lorem-lpsum-3'
          ]);
 
 
