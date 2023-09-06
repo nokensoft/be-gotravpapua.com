@@ -33,9 +33,9 @@
                                 <td>{{ ++$i }}</td>
                                 <td>
                                     @if (empty($data))
-                                    <img src="{{ asset('images/tour_adventures/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
+                                    <img src="{{ asset('images/tour_adventures/00.jpg') }}" alt="Picture" style="width:200px" class="border shadow">
                                     @else
-                                    <img src="{{ asset('images/tour_adventures/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
+                                    <img src="{{ asset($data->picture) }}" alt="Picture" style="width:200px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>

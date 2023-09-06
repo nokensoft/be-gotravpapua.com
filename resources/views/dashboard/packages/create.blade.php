@@ -62,7 +62,7 @@
                                 <select name="status" class="form-control" id="">
                                     <option value="" hidden>Select</option>
                                     <option value="Publish">Publish</option>
-                                    <option value="Draft">Draft</option>
+                                    <option value="Draft" selected>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))

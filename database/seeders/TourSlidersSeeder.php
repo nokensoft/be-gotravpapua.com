@@ -19,7 +19,7 @@ class TourSlidersSeeder extends Seeder
             'user_id' => 1,
             'title' => 'Slider 1',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '01.png',
+            'picture' => 'images/tour_sliders/01.png',
             'status' => 'Publish',
             'slug' => 'slider-1'
          ]);
@@ -28,7 +28,7 @@ class TourSlidersSeeder extends Seeder
             'user_id' => 1,
             'title' => 'Slider 2',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '02.png',
+            'picture' => 'images/tour_sliders/02.png',
             'status' => 'Publish',
             'slug' => 'slider-2'
          ]);
@@ -37,7 +37,7 @@ class TourSlidersSeeder extends Seeder
             'user_id' => 1,
             'title' => 'Slider 3',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '03.png',
+            'picture' => 'images/tour_sliders/03.png',
             'status' => 'Draft',
             'slug' => 'slider-3'
          ]);

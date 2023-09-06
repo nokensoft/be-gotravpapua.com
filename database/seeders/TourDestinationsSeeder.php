@@ -20,7 +20,7 @@ class TourDestinationsSeeder extends Seeder
             'slug' => 'tour-destination-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '01.png' ,
+            'picture' => 'images/tour_destinations/01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
 
@@ -31,7 +31,7 @@ class TourDestinationsSeeder extends Seeder
             'slug' => 'tour-destination-1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '01.png' ,
+            'picture' => 'images/tour_destinations/ww01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
 

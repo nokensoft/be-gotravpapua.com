@@ -65,8 +65,8 @@
                             <label for="description">Status </label>
                             <select name="status" class="form-control" id="">
 
-                                <option value="Publish" @if(old('status', $data->status) == 'Publish') Selected @endif>Publish</option>
-                                <option value="Draft" @if(old('status', $data->status) ==   'Draft' ) Selected @endif>Draft</option>
+                                <option value="Publish">Publish</option>
+                                <option value="Draft" selected>Draft</option>
                             </select>
 
                             @if ($errors->has('status'))
@@ -88,7 +88,7 @@
                                 @if (!$data->picture)
                                 <img src="{{ asset('images/tour_adventures/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @else
-                                <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
                             </div>
 

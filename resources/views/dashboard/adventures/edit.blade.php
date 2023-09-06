@@ -88,7 +88,7 @@
                                 @if (!$data->picture)
                                 <img src="{{ asset('images/tour_adventures/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @else
-                                <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
                             </div>
 

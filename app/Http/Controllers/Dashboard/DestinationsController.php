@@ -111,7 +111,7 @@ class DestinationsController extends Controller
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
                     endif;
-                    $data->picture = $pictureName;
+                    $data->picture = 'images/tour_destinations/' . $pictureName;
                     $request->picture->move(public_path('images/tour_destinations'), $pictureName);
                 }
 
@@ -179,7 +179,7 @@ class DestinationsController extends Controller
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
                     endif;
-                    $data->picture = $pictureName;
+                    $data->picture = 'images/tour_destinations/' . $pictureName;
                     $request->picture->move(public_path('images/tour_destinations'), $pictureName);
                 }
 

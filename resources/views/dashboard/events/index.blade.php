@@ -35,7 +35,7 @@
                                     @if (empty($data->picture))
                                     <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" style="width:200px" class="border shadow">
                                     @else
-                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" style="width:200px" class="border shadow">
+                                    <img src="{{ asset($data->picture) }}" alt="Image" style="width:200px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>

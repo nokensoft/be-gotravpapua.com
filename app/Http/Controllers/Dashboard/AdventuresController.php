@@ -108,12 +108,11 @@ class AdventuresController extends Controller
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
                     endif;
-                    $data->picture = $pictureName;
+                    $data->picture = 'images/tour_adventures/' . $pictureName;
                     $request->picture->move(public_path('images/tour_adventures'), $pictureName);
                 }
 
                 $data->save();
-
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/adventures/' . $data->id . '/show');
@@ -176,7 +175,7 @@ class AdventuresController extends Controller
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
                     endif;
-                    $data->picture = $pictureName;
+                    $data->picture = 'images/tour_adventures/' . $pictureName;
                     $request->picture->move(public_path('images/tour_adventures'), $pictureName);
                 }
 

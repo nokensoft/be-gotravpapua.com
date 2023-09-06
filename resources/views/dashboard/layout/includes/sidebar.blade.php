@@ -11,7 +11,7 @@
                         @if (!Auth::user()->picture)
                         <img src="{{ asset('images/users/00.jpg') }}" alt="user-img" class="rounded-circle avatar-md">
                         @else
-                        <img src="{{ asset('images/users/' . Auth::user()->picture) }}" alt="user-img" title="{{ Auth::user()->name }}" class="rounded-circle avatar-md">
+                        <img src="{{ asset(Auth::user()->picture) }}" alt="user-img" title="{{ Auth::user()->name }}" class="rounded-circle avatar-md">
                         @endif
 
                         <h5 class="mb-0">

@@ -16,7 +16,7 @@
                         @if (empty($data->picture))
                         <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" class="border shadow w-100">
                         @else
-                        <img src="{{ asset('images/tour_'.Request::segment(2).'/'. $data->picture) }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset($data->picture) }}" alt="Image" class="border shadow w-100">
                         @endif
                     </div>
                     <div class="col-lg-9">

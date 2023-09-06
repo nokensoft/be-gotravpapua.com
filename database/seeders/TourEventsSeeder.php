@@ -19,7 +19,7 @@ class TourEventsSeeder extends Seeder
             'title' => 'Tour Event 1',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '01.png' ,
+            'picture' => 'images/tour_events/01.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
             'slug' => 'lorem-lpsum-1'
@@ -30,7 +30,7 @@ class TourEventsSeeder extends Seeder
             'title' => 'Tour Event 2',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '02.png' ,
+            'picture' => 'images/tour_events/02.png' ,
             'status' => 'Publish' ,
             'user_id' => '1' ,
             'slug' => 'lorem-lpsum-2'
@@ -41,7 +41,7 @@ class TourEventsSeeder extends Seeder
             'title' => 'Tour Event 3',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-            'picture' => '03.png' ,
+            'picture' => 'images/tour_events/03.png' ,
             'status' => 'Draft' ,
             'user_id' => '1' ,
             'slug' => 'lorem-lpsum-3'
