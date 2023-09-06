@@ -2,7 +2,7 @@
 
 // VISITOR CONTROLLERS
 
-use App\Http\Controllers\dashboard\PesanController;
+use App\Http\Controllers\Dashboard\PesanController;
 use App\Http\Controllers\Visitor\HomeController;
 
 // dashboard CONTROLLERS

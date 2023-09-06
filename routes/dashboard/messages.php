@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dashboard\MessagesController;
+use App\Http\Controllers\Dashboard\MessagesController;
 use Illuminate\Support\Facades\Route;
 
     /*

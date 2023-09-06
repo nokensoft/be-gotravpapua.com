@@ -1,7 +1,7 @@
 <?php
 
 // DASBOR CONTROLLERS
-use App\Http\Controllers\Dasbor\UserController;
+use App\Http\Controllers\Dashboard\UserController;
 
 use Illuminate\Support\Facades\Route;
 

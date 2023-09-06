@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dashboard\SlidersController;
+use App\Http\Controllers\Dashboard\SlidersController;
 use Illuminate\Support\Facades\Route;
 
     /*

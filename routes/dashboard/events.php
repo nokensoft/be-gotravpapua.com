@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dashboard\EventsController;
+use App\Http\Controllers\Dashboard\EventsController;
 use Illuminate\Support\Facades\Route;
 
     /*

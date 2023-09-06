@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dashboard\DestinationsController;
+use App\Http\Controllers\Dashboard\DestinationsController;
 use Illuminate\Support\Facades\Route;
 
     /*

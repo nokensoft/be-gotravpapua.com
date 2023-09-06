@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dashboard\PackagesController;
+use App\Http\Controllers\Dashboard\PackagesController;
 use Illuminate\Support\Facades\Route;
 
     /*
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
     |--------------------------------------------------------------------------
     */
     Route::group(['middleware' => ['role:administrator']], function () { 
-    
+
         Route::controller(PackagesController::class)->group(function(){
 
             // index
