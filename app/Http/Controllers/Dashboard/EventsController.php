@@ -82,16 +82,10 @@ class EventsController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'body' => 'required',
-                'status' => 'required',
-                'description' => 'required',
                 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                'body.required' => 'This is a reaquired field',
-                'status.required' => 'This is a reaquired field',
-                'description.required' => 'This is a reaquired field',
                 'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
                 'picture.max' => 'Files must be a maximum of 2 MB',
             ]
@@ -156,17 +150,12 @@ class EventsController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'body' => 'required',
-                'status' => 'required',
-                'description' => 'required',
                 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'title.required' => 'This is a reaquired field',
-                'body.required' => 'This is a reaquired field',
-                'status.required' => 'This is a reaquired field',
-                'description.required' => 'This is a reaquired field',
                 'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'picture.max' => 'Files must be a maximum of 2 MB',
             ]
         );
 

@@ -82,9 +82,6 @@ class AdventuresController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'body' => 'required',
-                'status' => 'required',
-                'description' => 'required',
                 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
@@ -152,9 +149,6 @@ class AdventuresController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'body' => 'required',
-                'status' => 'required',
-                'description' => 'required',
                 'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
@@ -175,8 +169,6 @@ class AdventuresController extends Controller
                 $data->body = $request->body;
                 $data->status = $request->status;
                 $data->description = $request->description;
-
-
 
                 if ($request->picture) {
                     $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();

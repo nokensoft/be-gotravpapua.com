@@ -35,7 +35,7 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="body">Body <span class="text-danger">*</span></label>
+                            <label for="body">Body </label>
                             <textarea id="body" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->body ?? '' !!}</textarea>
 
                             @if ($errors->has('body'))
@@ -49,7 +49,7 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="description">Description <span class="text-danger">*</span></label>
+                            <label for="description">Description </label>
                             <textarea id="description" name="description" rows="3" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->description ?? '' !!}</textarea>
 
                             @if ($errors->has('description'))
@@ -62,9 +62,9 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="description">Status <span class="text-danger">*</span></label>
+                            <label for="description">Status </label>
                             <select name="status" class="form-control" id="">
-                                <option value="" hidden>Select</option>
+
                                 <option value="Publish" @if(old('status', $data->status) == 'Publish') Selected @endif>Publish</option>
                                 <option value="Draft" @if(old('status', $data->status) ==   'Draft' ) Selected @endif>Draft</option>
                             </select>

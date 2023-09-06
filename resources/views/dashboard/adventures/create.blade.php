@@ -33,7 +33,7 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="description">Body <span class="text-danger">*</span></label>
+                            <label for="description">Body </label>
                             <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
 
                             @if ($errors->has('body'))
@@ -46,7 +46,7 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="description">Description <span class="text-danger">*</span></label>
+                            <label for="description">Description </label>
                             <textarea id="description" name="description" rows="2" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
 
                             @if ($errors->has('description'))
@@ -58,9 +58,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description">Status <span class="text-danger">*</span></label>
+                            <label for="description">Status </label>
                             <select name="status" class="form-control" id="">
-                                <option value="" hidden>Select</option>
+
                                 <option value="Publish">Publish</option>
                                 <option value="Draft">Draft</option>
                             </select>
