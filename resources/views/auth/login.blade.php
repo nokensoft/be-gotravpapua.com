@@ -34,13 +34,13 @@
                     <div class="card shadow p-5">
                         <img src="{{ asset('images/logo_meta.jpg') }}" alt="Logo" class="card-img-top">
                         <div class="card-body">
-                            <p class="text-muted">Gunakan alamat email dan kata sandi Anda untuk mengakses halaman dasbor.</p>
+                            <p class="text-muted">Login using your email address and password</p>
                             <!-- FORM START -->
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
                                 <div class="mb-3">
-                                    <label for="alamatEmail" class="form-label">Alamat Email</label>
+                                    <label for="alamatEmail" class="form-label">Email Address</label>
                                     <input type="email" id="alamatEmail"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" placeholder="Masukan alamat email" required
@@ -54,7 +54,7 @@
                                 <!-- group item end -->
 
                                 <div class="mb-3">
-                                    <label for="kataSandi" class="form-label">Kata Sandi</label>
+                                    <label for="kataSandi" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
                                         <input type="password" id="kataSandi"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
@@ -71,7 +71,7 @@
                                 </div>
                                 <!-- group item end -->
 
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{
                                             old('remember') ? 'checked' : '' }}>
@@ -80,11 +80,11 @@
                                         </label>
                                     </div>
                                 </div>
-                                <!-- group item end -->
+                                <!-- group item end --> --}}
 
                                 <div class="d-block">
                                     <button class="btn btn-lg btn-primary w-100" type="submit">
-                                        Masuk
+                                        Login
                                     </button>
                                 </div>
 
