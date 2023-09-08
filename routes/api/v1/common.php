@@ -39,7 +39,17 @@ Route::prefix('v1')->middleware(['api'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index']);
 
 
+
 });
+
+
+
+// Route::prefix('v1')->middleware(['checkHeader'])->group(function () {
+
+
+//     Route::get('/users', [TourPackagesController::class, 'test']);
+
+// });
 
 
 
