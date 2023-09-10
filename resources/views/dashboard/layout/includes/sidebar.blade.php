@@ -24,7 +24,7 @@
 
                     <!--- Sidemenu -->
                     @if (Auth::user()->hasRole('administrator'))
-                        
+
                         <div id="sidebar-menu">
                             <ul id="side-menu">
                                 <li class="@if(!Request::segment(1) == 'dashboard') menuitem-active @endif">
@@ -91,7 +91,7 @@
                                     </a>
                                 </li>
                                 <!-- menu item end -->
-                                
+
                                 <li class="menu-title mt-2">Visitor Information</li>
 
                                 <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
@@ -104,7 +104,7 @@
                                     </a>
                                 </li>
                                 <!-- menu item end -->
-                                
+
                                 <li class="menu-title mt-2">Administrator</li>
 
                                 <li class="@if(Request::segment(2) == 'users') menuitem-active @endif">
@@ -130,7 +130,7 @@
                         </div>
 
                     @elseif (Auth::user()->hasRole('guest'))
-                        
+
                         <div id="sidebar-menu">
 
                             <ul id="side-menu">
@@ -149,7 +149,7 @@
                                         <span class="badge badge-success badge-pill float-right">
                                             {{ $dashboard_jml_siswa ?? '0' }}
                                         </span>
-                                        <span> Siswa</span>
+                                        <span> Lorem</span>
                                     </a>
                                 </li>
 

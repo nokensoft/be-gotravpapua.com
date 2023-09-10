@@ -11,5 +11,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     require_once 'dashboard/destinations.php';
     require_once 'dashboard/sliders.php';
     require_once 'dashboard/messages.php';
+    require_once 'dashboard/users.php';
 
 });

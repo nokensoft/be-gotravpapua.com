@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tour_messages', function (Blueprint $table) {
-            
+
             $table->id();
-            
+
             $table->string('name')->nullable();
             $table->string('message')->nullable();
 

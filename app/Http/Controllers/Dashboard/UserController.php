@@ -35,7 +35,7 @@ class UserController extends Controller
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 'Draft')->count();
         $datapublish = User::where('status', 'Publish')->count();
-        return view('dasbor.pengguna.index',compact('datas','jumlahtrash','jumlahdraft','datapublish'))->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('dashboard.users.index',compact('datas','jumlahtrash','jumlahdraft','datapublish'))->with('i', ($request->input('page', 1) - 1) * 5);
 
     }
 
@@ -56,15 +56,23 @@ class UserController extends Controller
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 'Draft')->count();
         $datapublish = User::where('status', 'Publish')->count();
-        return view('panel.admin.pages.users.index',compact('datas','jumlahtrash','jumlahdraft','datapublish'))
+        return view('dashboard.users.index',compact('datas','jumlahtrash','jumlahdraft','datapublish'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
+
+    // TRASH
+    public function trash(){
+
+        $datas = User::onlyTrashed()->paginate(5);
+        return view('dashboard.packages.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
 
     // CREATE
     public function create()
     {
         $roles = Role::pluck('display_name','display_name')->all();
-        return view('panel.admin.pages.users.create', compact('roles'));
+        return view('dashboard.users.create', compact('roles'));
     }
 
     // STORE
@@ -150,7 +158,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('panel.admin.pages.users.show',compact('user'));
+        return view('dashboard.users.show',compact('user'));
     }
 
     // EDIT
@@ -160,7 +168,7 @@ class UserController extends Controller
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
 
-        return view('panel.admin.pages.users.edit',compact('user','roles','userRole'));
+        return view('dashboard.users.edit',compact('user','roles','userRole'));
     }
 
     // UPDATE
@@ -201,14 +209,6 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    // TRASH
-    public function trash(){
-        $datas = User::onlyTrashed()->paginate(5);
-        $jumlahtrash = User::onlyTrashed()->count();
-        $jumlahdraft = User::where('status', 0)->count();
-        $datapublish = User::where('status', 1)->count();
-        return view('panel.admin.pages.users.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
-    }
 
     // RESTORE
     public function restore($id){

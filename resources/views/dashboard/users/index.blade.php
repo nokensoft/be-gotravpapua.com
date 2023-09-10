@@ -19,9 +19,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>Message</th>
-                                {{-- <th>Item</th>
-                                <th>Item</th> --}}
+                                <th>Job Postion</th>
+                                <th>Email</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -31,8 +31,16 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $data->name ?? '' }}</td>
-                                <td>{{ Str::limit($data->message,20)  }}</td>
-                                {{-- <td>{{ 'item' }}</td> --}}
+                                <td>{{ $data->job_title  }}</td>
+                                <td>{{ $data->email  }}</td>
+                                <td>
+                                    @if ($data->status === "Publish")
+                                        Active
+                                    @else
+                                      Inactive
+                                    @endif
+
+                                </td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 

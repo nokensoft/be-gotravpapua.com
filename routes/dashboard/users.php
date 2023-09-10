@@ -1,6 +1,6 @@
 <?php
 
-// DASBOR CONTROLLERS
+// USERS CONTROLLERS
 use App\Http\Controllers\Dashboard\UserController;
 
 use Illuminate\Support\Facades\Route;
@@ -15,48 +15,51 @@ use Illuminate\Support\Facades\Route;
         Route::controller(UserController::class)->group(function(){
 
             // index
-            Route::get('pengguna','index')
-                ->name('dasbor.pengguna');
+            Route::get('users','index')
+                ->name('dashboard.users');
+
+            // publish
+            Route::get('users/publish','index')->name('dashboard.users.publish');
 
             // draft
-            Route::get('pengguna/draft','draft')
-                ->name('dasbor.pengguna.draft');
+            Route::get('users/draft','draft')
+                ->name('dashboard.users.draft');
 
             // create
-            Route::get('pengguna/create','create')
-                ->name('dasbor.pengguna.create');
+            Route::get('users/create','create')
+                ->name('dashboard.users.create');
 
             // store
-            Route::post('pengguna','store')
-                ->name('dasbor.pengguna.store');
+            Route::post('users','store')
+                ->name('dashboard.users.store');
 
             // show
-            Route::get('pengguna/{slug}/detail','show')
-                ->name('dasbor.pengguna.show');
+            Route::get('users/{slug}/detail','show')
+                ->name('dashboard.users.show');
 
             // edit
-            Route::get('pengguna/{slug}/edit','edit')
-                ->name('dasbor.pengguna.edit');
+            Route::get('users/{slug}/edit','edit')
+                ->name('dashboard.users.edit');
 
             // update
-            Route::put('pengguna/{id}','update')
-                ->name('dasbor.pengguna.update');
+            Route::put('users/{id}','update')
+                ->name('dashboard.users.update');
 
             // destroy
-            Route::delete('pengguna/{id}','destroy')
-                ->name('dasbor.pengguna.destroy');
+            Route::delete('users/{id}','destroy')
+                ->name('dashboard.users.destroy');
 
             // trash
-            Route::get('pengguna/trash','trash')
-                ->name('dasbor.pengguna.trash');
+            Route::get('users/trash','trash')
+                ->name('dashboard.users.trash');
 
             // restore
-            Route::post('pengguna/restore/{id}','restore')
-                ->name('dasbor.pengguna.restore');
+            Route::post('users/restore/{id}','restore')
+                ->name('dashboard.users.restore');
 
             // delete
-            Route::delete('pengguna/delete/{id}','delete')
-                ->name('dasbor.pengguna.delete');
+            Route::delete('users/delete/{id}','delete')
+                ->name('dashboard.users.delete');
 
         });
     });
