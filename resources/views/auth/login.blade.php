@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $settings->site_title ?? 'SAGU Foundation' }}</title>
-    
+
     <meta property="og:title" content="{{ $settings->site_title ?? '' }}">
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ $settings->logo_meta ?? '' }}">
@@ -19,7 +19,7 @@
     <!-- FAVICON -->
     <link rel="apple-touch-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 </head>
@@ -82,11 +82,20 @@
                                 </div>
                                 <!-- group item end --> --}}
 
-                                <div class="d-block">
+                                <div class="d-block mb-3">
                                     <button class="btn btn-lg btn-primary w-100" type="submit">
                                         Login
                                     </button>
                                 </div>
+
+                                @if ($message = Session::get('info'))
+                                    <div class="alert alert-danger alert-block">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @endif
+
+
 
                             </form>
                             <!-- FORM END -->
@@ -104,6 +113,6 @@
             <!-- .row end -->
         </div>
     </section>
-    
+    @include('sweetalert::alert')
 </body>
 </html>

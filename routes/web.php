@@ -29,8 +29,8 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-// BERANDA
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// // BERANDA
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Auth::routes([
@@ -47,11 +47,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], function () {
+Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth','checkUserStatus']], function () {
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+});
 
-    });
 
 require_once 'dashboard.php';
 require_once 'profil.php';

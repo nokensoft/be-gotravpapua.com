@@ -71,42 +71,10 @@ class UserController extends Controller
     // CREATE
     public function create()
     {
-        $roles = Role::pluck('display_name','display_name')->all();
-        return view('dashboard.users.create', compact('roles'));
+        $roles  = Role::get();
+        return view('dashboard.users.create',compact('roles'));
     }
 
-    // STORE
-    public function store1111(Request $request)
-        {
-            $this->validate($request, [
-                'name'              => 'required',
-                'email'             => 'required|email|unique:users,email',
-                'password'          => 'required|same:confirm-password',
-                'roles'             => 'required',
-                'status'            => 'required'
-            ],
-            [
-                'name.required'     => 'Nama lengkap tidak boleh kosong',
-                'email.required'    => 'Alamat email tidak boleh kosong',
-                'email.email'       => 'Alamat email tidak sesuai format',
-                'email.unique'      => 'Alamat email sudah terdaftar',
-                'password.required' => 'Kata sandi tidak boleh kosong',
-                'password.same'     => 'Kata sandi tidak sama',
-                'roles.required'    => 'Role tidak boleh kosong',
-                'status.required'   => 'Status tidak boleh kosong',
-            ]
-
-        );
-
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('dasbor.users');
-    }
 
     // STORE
     public function store(Request $request)
@@ -115,20 +83,20 @@ class UserController extends Controller
             $request->all(),
             [
                 'name'              => 'required',
+                'job_title'         => 'required',
                 'email'             => 'required|email|unique:users,email',
-                'password'          => 'required|same:confirm-password',
-                'roles'             => 'required',
+                'password'          => 'required|confirmed|min:8',
                 'status'            => 'required'
             ],
             [
-                'name.required'     => 'Nama lengkap tidak boleh kosong',
-                'email.required'    => 'Alamat email tidak boleh kosong',
-                'email.email'       => 'Alamat email tidak sesuai format',
-                'email.unique'      => 'Alamat email sudah terdaftar',
-                'password.required' => 'Kata sandi tidak boleh kosong',
-                'password.same'     => 'Kata sandi tidak sama',
-                'roles.required'    => 'Role tidak boleh kosong',
-                'status.required'   => 'Status tidak boleh kosong',
+                'job_title.required'     => 'This is a reaquired field',
+                'name.required'     => 'This is a reaquired field',
+                'email.required'    => 'This is a reaquired field',
+                'email.email'       => 'Email address does not match the format',
+                'email.unique'      => 'Email address already in use',
+                'password.required' => 'This is a reaquired field',
+
+                'status.required'   => 'This is a reaquired field',
             ]
         );
 
@@ -139,16 +107,16 @@ class UserController extends Controller
 
                 $input = $request->all();
                 $input['password'] = Hash::make($input['password']);
-
+                $input['email_verified_at'] = now();
                 $user = User::create($input);
                 $user->assignRole($request->input('roles'));
 
-                alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-                return redirect()->route('dasbor.users');
+                Alert::toast('Created! This data has been created successfully.', 'success');
+                return redirect()->route('dashboard.users');
 
             } catch (\Throwable $th) {
                 dd($th);
-                Alert::toast('Gagal', 'error');
+                Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
@@ -164,45 +132,75 @@ class UserController extends Controller
     // EDIT
     public function edit($id)
     {
-        $user = User::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
+        $data = User::find($id);
+        $roles = Role::all();
 
-        return view('dashboard.users.edit',compact('user','roles','userRole'));
+
+        return view('dashboard.users.edit',compact('data','roles'));
     }
 
     // UPDATE
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required',
+                'status' => 'required',
+                'email' => 'required|email|unique:users,email,'.$id,
+                'password' => 'confirmed',
+                'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
+            ],[
 
-        $input = $request->all();
-        if(!empty($input['password'])){
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));
+                'job_title.required'     => 'This is a reaquired field',
+                'name.required'     => 'This is a reaquired field',
+                'email.required'    => 'This is a reaquired field',
+                'email.email'       => 'Email address does not match the format',
+                'email.unique'      => 'Email address already in use',
+                'password.required' => 'This is a reaquired field',
+                'status.required'   => 'This is a reaquired field',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $account = User::find($id);
+                $account->name = $request->name;
+                $account->email = $request->email;
+                $account->status = $request->status;
+                if ($request->password) {
+                    $account->password = Hash::make($request->password);
+                }
+                if ($request->picture) {
+
+                    $imageName = Str::slug($request->name) . '.' . $request->picture->extension();
+                    $path = public_path('images/users');
+                    if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
+                        unlink($path . '/' . $account->picture);
+                    endif;
+                    $account->picture = $imageName;
+                    $request->picture->move(public_path('images/users'), $imageName);
+                }
+                $account->update();
+                Alert::toast('Update! This data has been update successfully.', 'success');
+                return redirect()->route('dashboard.users');
+
+            } catch (\Throwable $th) {
+                Alert::toast('Failed', 'error');
+                return redirect()->back();
+            }
         }
 
-        $user = User::find($id);
-        $user->update($input);
-        Hash::table('model_has_roles')->where('model_id',$id)->delete();
 
-        $user->assignRole($request->input('roles'));
-
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('dasbor.users');
     }
 
     // DESTROY
     public function destroy($id)
     {
         $data = User::findOrFail($id);
-        $data->status = 0;
+
         $data->save();
         User::find($id)->delete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);

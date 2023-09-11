@@ -119,7 +119,7 @@ class SlidersController extends Controller
                 return redirect('dashboard/sliders/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
-                dd($th);
+
                 Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }

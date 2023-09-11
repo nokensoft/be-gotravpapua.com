@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $data->name ?? '' }}</td>
-                                <td>{{ Str::limit($data->message,20)  }}</td>
+                                <td>{{ Str::limit($data->message,50)  }}</td>
                                 {{-- <td>{{ 'item' }}</td> --}}
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
@@ -57,9 +57,9 @@
                                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                    {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
-                                    </a>
+                                    </a> --}}
 
                                     <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
                                     @csrf

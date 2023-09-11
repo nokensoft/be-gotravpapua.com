@@ -32,7 +32,9 @@
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $data->name ?? '' }}</td>
                                 <td>{{ $data->job_title  }}</td>
-                                <td>{{ $data->email  }}</td>
+                                <td>{{ $data->email  }}
+
+                                </td>
                                 <td>
                                     @if ($data->status === "Publish")
                                         Active
