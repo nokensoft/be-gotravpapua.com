@@ -12,7 +12,10 @@ class TourPackagesController extends Controller
 
     public function index()
     {
-        $data = TourPackages::with('user')->get();
+        $pagination = 15;
+        $data = TourPackages::with('user')
+        ->where('status','Publish')
+        ->paginate($pagination);
 
         return response()->json([
             'status' => true,
@@ -25,18 +28,6 @@ class TourPackagesController extends Controller
     public function show($slug)
     {
         $data = TourPackages::where('slug','=', $slug)->with('user')->first();
-        return response()->json([
-            'status' => true,
-            'message' => 'Success',
-            'data' => $data
-        ]);
-    }
-
-
-    public function test()
-    {
-        $data = User::get();
-
         return response()->json([
             'status' => true,
             'message' => 'Success',
