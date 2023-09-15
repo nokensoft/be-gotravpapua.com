@@ -10,7 +10,7 @@ class SlidersController extends Controller
 {
     public function index()
     {
-        $data = TourSliders::here('status','Publish')->get();
+        $data = TourSliders::where('status','Publish')->get();
 
         return response()->json([
             'status' => true,
