@@ -89,6 +89,12 @@
 
             </div>
             <!-- .card-body END -->
+
+            <div class="card-footer">
+                {{ $datas->links() }}
+            </div>
+            <!-- .card-footer END -->
+            
         </div>
         <!-- .card END -->
     </div>

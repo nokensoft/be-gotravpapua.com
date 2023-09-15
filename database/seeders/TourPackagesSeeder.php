@@ -41,7 +41,77 @@ class TourPackagesSeeder extends Seeder
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
             'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 4',
+            'slug' => 'tour-package-4',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
             'status' => 'Draft',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 5',
+            'slug' => 'tour-package-5',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 6',
+            'slug' => 'tour-package-6',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 7',
+            'slug' => 'tour-package-7',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 8',
+            'slug' => 'tour-package-8',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 9',
+            'slug' => 'tour-package-9',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
+            'user_id' => '1',
+        ]);
+
+        TourPackages::create([
+            'title' => 'Tour Package 10',
+            'slug' => 'tour-package-10',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'picture' => 'images/tour_packages/03.png',
+            'status' => 'Publish',
             'user_id' => '1',
         ]);
     }
