@@ -4,7 +4,7 @@
                         @include('dashboard.layout.includes.breadcrumb2')
 
                         <div class="row">
-                            <div class="col-xl-6 col-md-10">
+                            <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-body">
 
