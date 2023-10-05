@@ -64,7 +64,7 @@ class UserController extends Controller
     public function trash(){
 
         $datas = User::onlyTrashed()->paginate(5);
-        return view('dashboard.packages.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dashboard.users.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 

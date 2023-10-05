@@ -68,7 +68,6 @@
                             <label for="description">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control" id="">
                                 <option value="" hidden>Select</option>
-                                <option value="" hidden>Select</option>
                                 <option value="Publish" @if(old('status', $data->status) == 'Publish') Selected @endif>Publish</option>
                                 <option value="Draft" @if(old('status', $data->status) ==   'Draft' ) Selected @endif>Draft</option>
                             </select>
@@ -80,17 +79,21 @@
                             @endif
                         </div>
 
-                        {{-- <div class="mb-3">
+                        <div class="mb-3">
                             <label for="roles">Roles <span class="text-danger">*</span></label>
                             <select name="roles" class="form-control" id="">
+                                @php
+                                    $roleID = implode('', $data->roles()->pluck('id')->toArray());
+                                @endphp
                                 @foreach ($roles as $role )
-                                    @if ($role->display_name === "Administrator")
-                                        <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option>
-                                    @else
-                                    @endif
+                                        <option value="{{ $role->id }}" @if ($roleID == $role->id )
+                                            selected="selected"
+                                        @endif >
+                                            {{ $role->display_name }}
+                                        </option>
                                 @endforeach
                             </select>
-                        </div> --}}
+                        </div>
 
                     </div>
                     <div class="col-lg-6">
@@ -102,7 +105,7 @@
                                 @if (!$data->picture)
                                 <img src="{{ asset('images/tour_packages/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @else
-                                <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('images/users/'.$data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
                             </div>
 
