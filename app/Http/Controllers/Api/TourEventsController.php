@@ -10,7 +10,10 @@ class TourEventsController extends Controller
 {
     public function index()
     {
-        $data = TourEvents::with('user')->get();
+        $pagination = 15;
+        $data = TourEvents::with('user')
+                ->where('status','Publish')
+                ->paginate($pagination);
 
         return response()->json([
             'status' => true,

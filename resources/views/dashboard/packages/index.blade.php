@@ -94,7 +94,7 @@
                 {{ $datas->links() }}
             </div>
             <!-- .card-footer END -->
-            
+
         </div>
         <!-- .card END -->
     </div>

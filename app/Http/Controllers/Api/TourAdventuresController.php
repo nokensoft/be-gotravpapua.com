@@ -11,14 +11,17 @@ class TourAdventuresController extends Controller
 {
     public function index()
     {
+        $pagination = 15;
 
-     $data = TourAdventures::with('user')->get();
+        $data = TourAdventures::with('user')
+                ->where('status','Publish')
+                ->paginate($pagination);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Success',
-            'data' => $data
-        ]);
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+                'data' => $data
+            ]);
     }
 
     public function show($slug)

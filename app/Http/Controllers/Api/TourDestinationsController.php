@@ -10,7 +10,12 @@ class TourDestinationsController extends Controller
 {
     public function index()
     {
-        $data = TourDestinations::with('user')->get();
+        $pagination = 15;
+
+        $data = TourDestinations::with('user')
+        ->where('status','Publish')
+        ->paginate($pagination);
+
         return response()->json([
             'status' => true,
             'message' => 'Success',
