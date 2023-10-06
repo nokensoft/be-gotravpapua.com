@@ -228,4 +228,5 @@ class EventsController extends Controller
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
         return redirect()->back();
     }
+    
 }

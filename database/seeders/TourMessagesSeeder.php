@@ -18,18 +18,17 @@ class TourMessagesSeeder extends Seeder
 
         TourMessages::create([
             'name' => 'Message 1',
-            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-         ]);
-        
+            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+        ]);
+
         TourMessages::create([
             'name' => 'Message 2',
-            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-         ]);
-        
-         TourMessages::create([
-             'name' => 'Message 3',
-             'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
-          ]);
+            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+        ]);
 
+        // TourMessages::create([
+        //     'name' => 'Message 3',
+        //     'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+        // ]);
     }
 }
