@@ -51,21 +51,21 @@ class AppServiceProvider extends ServiceProvider
         $startDate = Carbon::now()->startOfWeek();
         $endDate = Carbon::now()->endOfWeek();
 
-        // view()->share([
+        view()->share([
 
-        //     // Settings
-        //     'settings' => Settings::first(),
+            // Settings
+            'settings' => Settings::first(),
 
-        //     // Counts
-        //     'packages_total' => TourPackages::count(),
-        //     'destinations_total' => TourDestinations::count(),
-        //     'adventures_total' => TourAdventures::count(),
-        //     'events_total' => TourEvents::count(),
-        //     'messages_total' => TourMessages::count(),
-        //     'sliders_total' => TourSliders::count(),
-        //     'users_total' => User::count(),
+            // Counts
+            'packages_total' => TourPackages::count(),
+            'destinations_total' => TourDestinations::count(),
+            'adventures_total' => TourAdventures::count(),
+            'events_total' => TourEvents::count(),
+            'messages_total' => TourMessages::count(),
+            'sliders_total' => TourSliders::count(),
+            'users_total' => User::count(),
 
-        // ]);
+        ]);
 
     }
 
