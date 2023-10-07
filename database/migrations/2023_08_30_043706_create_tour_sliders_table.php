@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
 
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('picture')->nullable();
 
             $table->enum('status',['Publish','Draft']);
