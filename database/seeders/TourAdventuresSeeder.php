@@ -16,7 +16,7 @@ class TourAdventuresSeeder extends Seeder
     public function run()
     {
         TourAdventures::create([
-            'title' => 'Tour Adventure 1',
+            'title' => 'Motorcycle Tours',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => 'images/tour_adventures/01.png' ,
@@ -26,7 +26,7 @@ class TourAdventuresSeeder extends Seeder
          ]);
 
          TourAdventures::create([
-            'title' => 'Tour Adventure 2',
+            'title' => 'Wildlife Conservation Expeditions',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
             'picture' => 'images/tour_adventures/02.png' ,
