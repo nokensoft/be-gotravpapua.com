@@ -25,19 +25,25 @@
                             <b class="d-block mb-2">Title </b>
                             {!! $data->title ?? '' !!}
                         </div>
+                        <!-- input item END -->
+
+                        <div class="p-2 px-3 border-bottom">
+                            <b class="d-block mb-2">Description / Sub Title</b>
+                            {!! $data->description ?? '' !!}
+                        </div>
+                        <!-- input item END -->
 
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Body </b>
                             {!! $data->body ?? '' !!}
                         </div>
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Description </b>
-                            {!! $data->description ?? '' !!}
-                        </div>
+                        <!-- input item END -->
+
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Status </b>
                             {!! $data->status ?? '' !!}
                         </div>
+                        <!-- input item END -->
 
                         <div class="p-2 px-3">
 
