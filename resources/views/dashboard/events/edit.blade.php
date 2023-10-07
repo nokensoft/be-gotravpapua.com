@@ -35,12 +35,12 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="body">Body </label>
-                                <textarea id="body" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->body ?? '' !!}</textarea>
+                                <label for="description">Description / Sub Title</label>
+                                <textarea id="description" name="description" rows="3" class="form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->description ?? '' !!}</textarea>
 
-                                @if ($errors->has('body'))
+                                @if ($errors->has('description'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('body') }}</small>
+                                        <small>{{ $errors->first('description') }}</small>
                                     </span>
                                 @endif
 
@@ -49,12 +49,12 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="description">Description </label>
-                                <textarea id="description" name="description" rows="3" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->description ?? '' !!}</textarea>
+                                <label for="body">Body </label>
+                                <textarea id="body" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->body ?? '' !!}</textarea>
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('body'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('description') }}</small>
+                                        <small>{{ $errors->first('body') }}</small>
                                     </span>
                                 @endif
 

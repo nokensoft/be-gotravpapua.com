@@ -34,7 +34,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Description / Sub Title </label>
-                            <textarea id="description" name="description" rows="2" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
+                            <textarea id="description" name="description" rows="2" class="form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
 
                             @if ($errors->has('description'))
                             <span class="text-danger" role="alert">

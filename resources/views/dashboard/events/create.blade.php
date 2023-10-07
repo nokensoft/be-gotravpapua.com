@@ -33,12 +33,12 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="description">Body </label>
-                                <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
+                                <label for="description">Description / Sub Title</label>
+                                <textarea id="description" name="description" rows="2" class="form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
 
-                                @if ($errors->has('body'))
+                                @if ($errors->has('description'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('body') }}</small>
+                                        <small>{{ $errors->first('description') }}</small>
                                     </span>
                                 @endif
 
@@ -47,12 +47,12 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="description">Description </label>
-                                <textarea id="description" name="description" rows="2" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
+                                <label for="description">Body </label>
+                                <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('body'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('description') }}</small>
+                                        <small>{{ $errors->first('body') }}</small>
                                     </span>
                                 @endif
 
