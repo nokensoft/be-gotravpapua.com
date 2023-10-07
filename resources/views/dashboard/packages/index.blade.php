@@ -20,8 +20,7 @@
                                 <th>No</th>
                                 <th>Picture</th>
                                 <th>Title</th>
-                                <th>Body</th>
-                                <th>Description</th>
+                                <th>Description/Sub Title</th>
                                 <th>Status</th>
                                 <th></th>
                             </tr>
@@ -39,8 +38,7 @@
                                     @endif
                                 </td>
                                 <td>{{ $data->title ?? '' }}</td>
-                                <td>{!! Str::limit($data->body, 20, '...') !!}</td>
-                                <td>{!! Str::limit($data->description, 20, '...') !!}</td>
+                                <td class="col-lg-4">{!! Str::limit($data->description, 100, '...') !!}</td>
                                 <td>{{ $data->status}}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
@@ -89,9 +87,9 @@
 
             </div>
             <!-- .card-body END -->
-
-            <div class="card-footer">
-                {{ $datas->links() }}
+            
+            <div class="card-footer d-flex justify-content-center">
+                {!! $datas->links() !!}
             </div>
             <!-- .card-footer END -->
 

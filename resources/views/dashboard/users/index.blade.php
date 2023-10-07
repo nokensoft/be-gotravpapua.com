@@ -90,9 +90,9 @@
 
             </div>
             <!-- .card-body END -->
-
-            <div class="card-footer">
-                {{ $datas->links() }}
+            
+            <div class="card-footer d-flex justify-content-center">
+                {!! $datas->links() !!}
             </div>
             <!-- .card-footer END -->
 
