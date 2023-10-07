@@ -16,20 +16,20 @@ class TourPackagesSeeder extends Seeder
     public function run()
     {
         TourPackages::create([
-            'title' => 'Tour Package 1',
-            'slug' => 'tour-package-1',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'title' => 'Snorkeling With Whale Shark in Nabire',
+            'slug' => 'snorkeling-with-whale-shark-in-nabire',
+            'body' => '5 days exploring Nabire Regency and do snorkeling with whale shark in Nabire. You will also visit some beautiful places around',
+            'description' => '4 days exploring Nabire Regency and do snorkeling with whale shark in Nabire. You will also visit some beautiful places around',
             'picture' => 'images/tour_packages/01.png',
             'status' => 'Publish',
             'user_id' => '1',
         ]);
 
         TourPackages::create([
-            'title' => 'Tour Package 2',
-            'slug' => 'tour-package-2',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'title' => 'Exploring the Biak Islands',
+            'slug' => 'exploring-the-biak-islands',
+            'body' => '5 days some in eoormous places around Biak. Visiting beautiful islands, iconik buildings, and historical placces.',
+            'description' => '5 days some in eoormous places around Biak. Visiting beautiful islands, iconik buildings, and historical placces.',
             'picture' => 'images/tour_packages/02.png',
             'status' => 'Publish',
             'user_id' => '1',
