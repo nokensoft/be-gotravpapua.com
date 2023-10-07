@@ -61,6 +61,7 @@
                         </div>
                         <!-- input item END -->
 
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Status </label>
                             <select name="status" class="form-control" id="">
@@ -76,6 +77,7 @@
                             @endif
 
                         </div>
+                        <!-- input item END -->
 
                     </div>
 

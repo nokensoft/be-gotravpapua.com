@@ -45,6 +45,7 @@
                             </div>
                             <!-- input item END -->
 
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="description">Description </label>
                                 <textarea id="description" name="description" rows="2" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
@@ -56,7 +57,9 @@
                                 @endif
 
                             </div>
+                            <!-- input item END -->
 
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="description">Status </label>
                                 <select name="status" class="form-control" id="">
@@ -72,8 +75,11 @@
                                 @endif
 
                             </div>
+                            <!-- input item END -->
 
                         </div>
+                        <!-- .col END -->
+
                         <div class="col-lg-6">
 
                             <!-- input item START -->
@@ -98,10 +104,9 @@
                             </div>
                             <!-- input item END -->
 
-                            <!-- input item START -->
-
-                            <!-- input item END -->
                         </div>
+                        <!-- .col END -->
+
                     </div>
 
                     <button type="submit" class="btn btn-primary rounded-0">

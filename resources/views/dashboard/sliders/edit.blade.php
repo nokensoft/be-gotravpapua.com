@@ -47,6 +47,7 @@
                         </div>
                         <!-- input item END -->
 
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Status </label>
                             <select name="status" class="form-control" id="">
@@ -62,6 +63,7 @@
                             @endif
 
                         </div>
+                        <!-- input item END -->
 
                     </div>
 
@@ -78,7 +80,6 @@
                                 @endif
                             </div>
 
-
                             <div class="custom-file">
                                 <input type="file" name="picture" class="custom-file-input" id="gambar" accept="image/*">
                                 <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
@@ -94,9 +95,6 @@
                         </div>
                         <!-- input item END -->
 
-                        <!-- input item START -->
-
-                        <!-- input item END -->
                     </div>
                 </div>
 

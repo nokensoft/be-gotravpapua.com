@@ -31,8 +31,7 @@
                         </div>
                         <!-- input item END -->
 
-
-
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Email <span class="text-danger">*</span></label>
                             <input type="email" id="title" name="email" value="{{ old('email',$data->email) }}" class="form-control rounded-0" placeholder="write email here">
@@ -42,7 +41,9 @@
                                 </span>
                             @endif
                         </div>
+                        <!-- input item END -->
 
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Password </label>
                             <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="write password here">
@@ -52,7 +53,9 @@
                                 </span>
                             @endif
                         </div>
+                        <!-- input item END -->
 
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="password_confirmation">Confirmation Password </label>
                             <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0" placeholder="write confirmation password  here">
@@ -62,8 +65,9 @@
                                 </span>
                             @endif
                         </div>
+                        <!-- input item END -->
 
-
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control" id="">
@@ -78,7 +82,9 @@
                                 </span>
                             @endif
                         </div>
+                        <!-- input item END -->
 
+                        <!-- input item START -->
                         <div class="mb-3">
                             <label for="roles">Roles <span class="text-danger">*</span></label>
                             <select name="roles" class="form-control" id="">
@@ -94,6 +100,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <!-- input item END -->
 
                     </div>
                     <div class="col-lg-6">
@@ -123,10 +130,7 @@
 
                         </div>
                         <!-- input item END -->
-
-                        <!-- input item START -->
-
-                        <!-- input item END -->
+                        
                     </div>
                 </div>
 

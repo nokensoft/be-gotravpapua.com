@@ -25,15 +25,19 @@
                             <b class="d-block mb-2">Title </b>
                             {!! $data->title ?? '' !!}
                         </div>
+                        <!-- input item END -->
 
                         <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Description </b>
+                            <b class="d-block mb-2">Description / Sub Title</b>
                             {!! $data->description ?? '' !!}
                         </div>
+                        <!-- input item END -->
+
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Status </b>
                             {!! $data->status ?? '' !!}
-                        </div>
+                        </div>                        
+                        <!-- input item END -->
 
                         <div class="p-2 px-3">
 
