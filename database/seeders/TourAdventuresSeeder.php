@@ -35,6 +35,26 @@ class TourAdventuresSeeder extends Seeder
             'slug' => 'lorem-lpsum-2'
          ]);
 
+         TourAdventures::create([
+            'title' => 'Surfing and Windsurfing',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
+            'picture' => 'images/tour_adventures/03.png' ,
+            'status' => 'Publish' ,
+            'user_id' => '1' ,
+            'slug' => 'lorem-lpsum-2'
+         ]);
+
+         TourAdventures::create([
+            'title' => 'Cultural Immersion',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
+            'picture' => 'images/tour_adventures/04.png' ,
+            'status' => 'Publish' ,
+            'user_id' => '1' ,
+            'slug' => 'lorem-lpsum-2'
+         ]);
+
          // TourAdventures::create([
          //    'title' => 'Tour Adventure 3',
          //    'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!' ,
