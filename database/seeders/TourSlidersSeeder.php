@@ -38,7 +38,7 @@ class TourSlidersSeeder extends Seeder
             'user_id' => 1,
             'title' => 'Delve into the rich and captivating world of Papuan culture',
             'description' => "Where ancient traditions blend harmoniously with modern influences. From their intricate tribal rituals to their mesmerizing traditional dances, the Papuan people's heritage is a tapestry of diverse customs and beliefs. Embark on a cultural journey that celebrates the unique and vibrant spirit of Papua, a land brimming with authenticity and warmth." ,
-            'picture' => 'images/tour_sliders/02.png',
+            'picture' => 'images/tour_sliders/03.png',
             'status' => 'Publish',
             'slug' => 'slider-2'
          ]);
