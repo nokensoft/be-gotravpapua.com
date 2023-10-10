@@ -20,7 +20,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="title">Title <span class="text-danger">*</span></label>
-                            <input type="text" id="title" name="title" class="form-control rounded-0" placeholder="write adventure title here">
+                            <input type="text" id="title" name="title" class="form-control rounded-0" placeholder="write destination title here">
 
                             @if ($errors->has('title'))
                             <span class="text-danger" role="alert">

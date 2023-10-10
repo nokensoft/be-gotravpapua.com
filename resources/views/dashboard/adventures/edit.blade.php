@@ -143,8 +143,9 @@
         $('.ckeditor').ckeditor();
     });
     CKEDITOR.config.height='400px';
+
     $(document).ready(function (e) {
-         ('#gambar').change(function(){
+        $('#gambar').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
                   $('#preview-gambar').attr('src', e.target.result);
