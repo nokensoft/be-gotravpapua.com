@@ -20,7 +20,7 @@
                                 <th>No</th>
                                 <th>Picture</th>
                                 <th>Title</th>
-                                <th>Description</th>
+                                <th>Description/Sub Title</th>
                                 <th>Status</th>
                                 <th></th>
                             </tr>

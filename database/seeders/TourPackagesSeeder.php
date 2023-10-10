@@ -18,7 +18,7 @@ class TourPackagesSeeder extends Seeder
         TourPackages::create([
             'title' => 'Snorkeling With Whale Shark in Nabire',
             'slug' => 'snorkeling-with-whale-shark-in-nabire',
-            'body' => '5 days exploring Nabire Regency and do snorkeling with whale shark in Nabire. You will also visit some beautiful places around',
+            'body' => '4 days exploring Nabire Regency and do snorkeling with whale shark in Nabire. You will also visit some beautiful places around',
             'description' => '4 days exploring Nabire Regency and do snorkeling with whale shark in Nabire. You will also visit some beautiful places around',
             'picture' => 'images/tour_packages/01.png',
             'status' => 'Publish',

@@ -27,7 +27,6 @@ class SlidersController extends Controller
     */
 
     // index | publish
-
     public function index(Request $request)
     {
         $datas = TourSliders::where([
@@ -99,8 +98,10 @@ class SlidersController extends Controller
 
                 $data->title = $request->title;
                 $data->slug = Str::slug($data->title);
+
                 $data->description = $request->description;
                 $data->status = $request->status;
+
                 $data->user_id = Auth::user()->id;
 
                 if ($request->picture) {
@@ -163,8 +164,11 @@ class SlidersController extends Controller
             try {
                 $data = TourSliders::find($id);
                 $data->title = $request->title;
-                $data->description = $request->description;
                 $data->slug = Str::slug($data->title);
+
+                $data->description = $request->description;
+                $data->status = $request->status;
+
                 $data->user_id = Auth::user()->id;
 
                 if ($request->picture) {
@@ -223,4 +227,5 @@ class SlidersController extends Controller
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
         return redirect()->back();
     }
+
 }

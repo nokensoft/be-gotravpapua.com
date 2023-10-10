@@ -20,7 +20,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="title">Title <span class="text-danger">*</span></label>
-                                <input type="text" id="title" name="title" class="form-control rounded-0" placeholder="write adventure title here">
+                                <input type="text" id="title" name="title" class="form-control rounded-0" placeholder="write event title here">
 
                                 @if ($errors->has('title'))
                                 <span class="text-danger" role="alert">
@@ -47,8 +47,8 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="description">Body </label>
-                                <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
+                                <label for="body">Body </label>
+                                <textarea id="body" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="write event body content here"></textarea>
 
                                 @if ($errors->has('body'))
                                 <span class="text-danger" role="alert">
