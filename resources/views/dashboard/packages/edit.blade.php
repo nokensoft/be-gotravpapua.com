@@ -132,7 +132,6 @@
 
 @endsection
 
-
 @push('script-footer')
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">

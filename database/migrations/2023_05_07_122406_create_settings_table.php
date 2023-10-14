@@ -19,10 +19,10 @@ return new class extends Migration
 
             // Site Information
             $table->string('site_title')->nullable();
-            $table->string('site_address')->nullable();
-            $table->string('copyright')->nullable();
+            $table->text('site_address')->nullable();
+            $table->text('copyright')->nullable();
 
-            $table->string('slug')->nullable();
+            $table->text('slug')->nullable();
 
             // Metas
             $table->text('meta_tags')->nullable();
@@ -33,10 +33,10 @@ return new class extends Migration
             $table->string('logo_favicon')->nullable();
 
             // Contact
-            $table->string('office_address')->nullable();
+            $table->text('office_address')->nullable();
             $table->string('email_address')->nullable();
             $table->string('telephone')->nullable();
-            $table->mediumText('google_map_embed')->nullable();
+            $table->text('google_map_embed')->nullable();
 
             // Social Media
             $table->string('instagram')->nullable();
