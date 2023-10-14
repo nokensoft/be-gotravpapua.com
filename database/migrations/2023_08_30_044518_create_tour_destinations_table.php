@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('title')->nullable(); 
             $table->string('slug')->nullable(); 
 
-            $table->text('description')->nullable();
-            $table->mediumText('body')->nullable();
+            $table->mediumText('description')->nullable();
+            $table->longText('body')->nullable();
             
             $table->string('picture')->nullable();
             $table->enum('status',['Publish','Draft']);
