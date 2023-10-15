@@ -107,6 +107,7 @@
                             <button type="submit" class="btn btn-success rounded-0">
                                 <i class="fa-solid fa-save"></i> Save
                             </button>
+                            <!-- input item END -->
 
                     </div>
                 </div>

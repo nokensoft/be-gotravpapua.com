@@ -17,18 +17,17 @@ class TourMessagesSeeder extends Seeder
     {
 
         TourMessages::create([
-            'name' => 'Message 1',
-            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'name' => 'Janzen Faidiban',
+            'email' => 'janzen.faidiban@nokensoft.com',
+            'phone' => '082199558191',
+            'message' => 'Hello, I am Janzen from Nokensoft.',
         ]);
 
         TourMessages::create([
-            'name' => 'Message 2',
-            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
+            'name' => 'Christoper Zonggonau',
+            'email' => 'zonggonau@sacode.web.id',
+            'phone' => '082199558191',
+            'message' => 'Hello, I am Janzen from SaCode and I want to explore Nabire. Please send me a guidance. Thanks.',
         ]);
-
-        // TourMessages::create([
-        //     'name' => 'Message 3',
-        //     'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aperiam!',
-        // ]);
     }
 }

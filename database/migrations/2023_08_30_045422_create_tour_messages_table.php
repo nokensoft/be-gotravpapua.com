@@ -18,7 +18,9 @@ return new class extends Migration
             $table->id();
 
             $table->string('name')->nullable();
-            $table->string('message')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('message')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

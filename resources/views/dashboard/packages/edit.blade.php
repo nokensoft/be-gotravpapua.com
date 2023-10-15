@@ -7,7 +7,7 @@
 
 <!-- .row START -->
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
 
@@ -16,33 +16,7 @@
                 @method('put')
 
                 <div class="row">
-                    <div class="col-12">
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Image </label>
-                            <div class="mb-2">
-                                @if (!$data->picture)
-                                <img src="{{ asset('images/tour_packages/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
-                                @else
-                                <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
-                                @endif
-                            </div>
-
-                            <div class="custom-file">
-                                <input type="file" name="picture" class="custom-file-input" id="gambar" accept="image/*">
-                                <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
+                    <div class="col-lg-8">
 
                         <!-- input item START -->
                         <div class="mb-3">
@@ -87,6 +61,36 @@
                         </div>
                         <!-- input item END -->
 
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <!-- input item START -->
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label d-block">Image </label>
+                            <div class="mb-2">
+                                @if (!$data->picture)
+                                <img src="{{ asset('images/tour_packages/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                @else
+                                <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                @endif
+                            </div>
+
+                            <div class="custom-file">
+                                <input type="file" name="picture" class="custom-file-input" id="gambar" accept="image/*">
+                                <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
+                                <label class="custom-file-label" for="customFile">Select image</label>
+                            </div>
+
+                            @if ($errors->has('picture'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('picture') }}</small>
+                                </span>
+                            @endif
+
+                        </div>
+                        <!-- input item END -->
+
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Status </label>
@@ -104,20 +108,18 @@
                         </div>
                         <!-- input item END -->
 
-                    </div>
+                        <button type="submit" class="btn btn-primary rounded-0">
+                            <i class="fa-solid fa-save"></i> Save
+                        </button>
+                        <!-- input item END -->
 
-                    <div class="col-lg-6">
+                        <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
+                            <i class="fa-solid fa-times-square"></i> Cancle
+                        </a>
+                        <!-- input item END -->
 
                     </div>
                 </div>
-
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-save"></i> Save
-                    </button>
-
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
 
                 </form>
 

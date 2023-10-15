@@ -16,7 +16,7 @@
                 @method('put')
 
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
 
                         <!-- input item START -->
                         <div class="mb-3">
@@ -61,27 +61,9 @@
                         </div>
                         <!-- input item END -->
 
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="description">Status </label>
-                            <select name="status" class="form-control" id="">
-
-                                <option value="Publish">Publish</option>
-                                <option value="Draft" selected>Draft</option>
-                            </select>
-
-                            @if ($errors->has('status'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('status') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
 
                         <!-- input item START -->
                         <div class="mb-3">
@@ -111,18 +93,35 @@
                         <!-- input item END -->
 
                         <!-- input item START -->
+                        <div class="mb-3">
+                            <label for="description">Status </label>
+                            <select name="status" class="form-control" id="">
 
+                                <option value="Publish">Publish</option>
+                                <option value="Draft" selected>Draft</option>
+                            </select>
+
+                            @if ($errors->has('status'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('status') }}</small>
+                                </span>
+                            @endif
+
+                        </div>
                         <!-- input item END -->
+
+                        <button type="submit" class="btn btn-primary rounded-0">
+                            <i class="fa-solid fa-save"></i> Save
+                        </button>
+                        <!-- input item END -->
+
+                        <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
+                            <i class="fa-solid fa-times-square"></i> Cancle
+                        </a>
+                        <!-- input item END -->
+                        
                     </div>
                 </div>
-
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-save"></i> Save
-                    </button>
-
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
 
                 </form>
 
