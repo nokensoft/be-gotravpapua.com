@@ -7,7 +7,7 @@
 
 <!-- .row START -->
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-8">
         <div class="card">
             <div class="card-body">
 
@@ -15,12 +15,13 @@
                 @csrf
 
                 <div class="row">
-                    <div class="col-lg-6">
+
+                    <div class="col-md-6">
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" name="name" class="form-control rounded-0" placeholder="write username here">
+                            <label for="name">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control rounded-0">
                             <input type="hidden" id="job_title" name="job_title" class="form-control rounded-0" value="Administrator on www.gotravpapua.com">
                             @if ($errors->has('name'))
                             <span class="text-danger" role="alert">
@@ -33,8 +34,21 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+                            @if ($errors->has('name'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('name') }}</small>
+                                </span>
+                            @endif
+
+                        </div>
+                        <!-- input item END -->
+
+                        <!-- input item START -->
+                        <div class="mb-3">
                             <label for="description">Email <span class="text-danger">*</span></label>
-                            <input type="email" id="title" name="email" class="form-control rounded-0" placeholder="write email here">
+                            <input type="email" id="title" name="email" class="form-control rounded-0">
                             @if ($errors->has('email'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('email') }}</small>
@@ -46,7 +60,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Password <span class="text-danger">*</span></label>
-                            <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="write password here">
+                            <input type="password" id="password" name="password" class="form-control rounded-0">
                             @if ($errors->has('password'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('password') }}</small>
@@ -58,27 +72,10 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="password_confirmation">Confirmation Password <span class="text-danger">*</span></label>
-                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0" placeholder="write confirmation password  here">
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0">
                             @if ($errors->has('password_confirmation'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('password_confirmation') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="description">Status <span class="text-danger">*</span></label>
-                            <select name="status" class="form-control" id="">
-                                <option value="" hidden>Select</option>
-                                <option value="Publish">Publish</option>
-                                <option value="Draft">Draft</option>
-                            </select>
-
-                            @if ($errors->has('status'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('status') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -99,13 +96,15 @@
                         <!-- input item END -->
 
                     </div>
-                    <div class="col-lg-6">
+                    <!-- col END -->
+
+                    <div class="col-md-6">
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Image</label>
+                            <label for="gambar" class="form-label d-block">Picture</label>
                             <div class="mb-2">
-                                <img src="{{ asset('images/tour_packages/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('images/users/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>
 
                             <div class="custom-file">
@@ -122,17 +121,38 @@
 
                         </div>
                         <!-- input item END -->
+
+                        <!-- input item START -->
+                        <div class="mb-3">
+                            <label for="description">Status <span class="text-danger">*</span></label>
+                            <select name="status" class="form-control" id="">
+                                <option value="" hidden>Select</option>
+                                <option value="Publish">Publish</option>
+                                <option value="Draft">Draft</option>
+                            </select>
+
+                            @if ($errors->has('status'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('status') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item END -->
+
+                        <button type="submit" class="btn btn-primary rounded-0">
+                            <i class="fa-solid fa-plus-square"></i> Submit
+                        </button>
+                        <!-- input item END -->
+
+                        <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
+                            <i class="fa-solid fa-times-square"></i> Cancle
+                        </a>
+                        <!-- input item END -->
                         
                     </div>
+                    <!-- col END -->
+
                 </div>
-
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-plus-square"></i> Submit
-                    </button>
-
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
 
                 </form>
 

@@ -18,6 +18,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Picture</th>
                                 <th>Name</th>
                                 <th>Job Postion</th>
                                 <th>Email</th>
@@ -30,6 +31,13 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
+                                <td>
+                                    @if ($data->picture)
+                                    <img src="{{ asset($data->picture ?? '') }}" alt="Picture" class="img img-thumbnail" style="width: 8rem;">
+                                    @else
+                                    <img src="{{ asset('images/users/00.png') }}" alt="Picture" class="img img-thumbnail" style="width: 8rem">
+                                    @endif
+                                </td>
                                 <td>{{ $data->name ?? '' }}</td>
                                 <td>{{ $data->job_title  }}</td>
                                 <td>{{ $data->email  }}
@@ -64,9 +72,11 @@
                                 </td>
                                 @else
                                 <td class="d-flex">
-                                    {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a> --}}
+                                    
+                                    @if ($data->email == 'admin@gotravpapua.com')
+
+                                    @else
+                                    
                                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
@@ -78,6 +88,9 @@
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                     </form>
+                                        
+                                    @endif
+
                                 </td>
                                 @endif
                             </tr>

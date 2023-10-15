@@ -82,7 +82,7 @@
                                                     </li>
                                                 </ul>
 
-                                                <a href="{{ url('dashboard/settings/edit') }}" class="btn btn-success rounded-0">
+                                                <a href="{{ url('dashboard/settings/edit') }}" class="btn btn-primary rounded-0">
                                                     <i class="fa-solid fa-edit"></i> Edit
                                                 </a>
 

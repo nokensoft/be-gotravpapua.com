@@ -11,45 +11,52 @@
         <div class="card">
             <div class="card-body">
 
-                <div class="row">
+                <div class="p-2 px-3 border-bottom">
+                    <b class="d-block mb-2">Name </b>
+                    {!! $data->name ?? '' !!}
+                </div>
+                <!-- item END -->   
 
-                    <div class="col-lg-9">
+                <div class="p-2 px-3 border-bottom">
+                    <b class="d-block mb-2">Email </b>
+                    {!! $data->email ?? '' !!}
+                </div>
+                <!-- item END --> 
 
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Name </b>
-                            {!! $data->name ?? '' !!}
-                        </div>
+                <div class="p-2 px-3 border-bottom">
+                    <b class="d-block mb-2">Phone </b>
+                    {!! $data->phone ?? '' !!}
+                </div>
+                <!-- item END --> 
 
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Message </b>
-                            {!! $data->message ?? '' !!}
-                        </div>
+                <div class="p-2 px-3 border-bottom">
+                    <b class="d-block mb-2">Message </b>
+                    {!! $data->message ?? '' !!}
+                </div>
+                <!-- item END --> 
 
-                        <div class="p-2 px-3">
+                <div class="p-2 px-3 border-bottom">
+                    <b class="d-block mb-2">Date </b>
+                    {!! $data->created_at ?? '' !!}
+                </div>
+                <!-- item END --> 
 
-                            <div class="d-flex">
-                                {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
-                                    <i class="fa-solid fa-eye"></i> Preview
-                                </a> --}}
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-reply"></i>
-                                </a>
-                                {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-edit"></i>
-                                </a> --}}
+                <div class="p-2 px-3">
 
-                                <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                                </form>
-                            </div>
+                    <div class="d-flex">
+                        <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->id) }}" class="btn btn-sm btn-light rounded-0">
+                            <i class="fa-solid fa-reply"></i>
+                        </a>
 
-                        </div>
-
+                        <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-light rounded-0">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        </form>
                     </div>
+
                 </div>
 
             </div>

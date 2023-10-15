@@ -104,7 +104,7 @@
                                 </li>
                             </ul>
 
-                            <button type="submit" class="btn btn-success rounded-0">
+                            <button type="submit" class="btn btn-primary rounded-0">
                                 <i class="fa-solid fa-save"></i> Save
                             </button>
                             <!-- input item END -->
