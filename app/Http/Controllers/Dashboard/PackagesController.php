@@ -82,7 +82,7 @@ class PackagesController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'picture' => 'image|mimes:png,jpeg,jpg',
             ],
             [
                 'title.required' => 'This is a reaquired field',
@@ -149,7 +149,7 @@ class PackagesController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'picture' => 'image|mimes:png,jpeg,jpg',
             ],
             [
                 'title.required' => 'This is a reaquired field',
