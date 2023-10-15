@@ -24,11 +24,6 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                {{-- <a href="{{ url('dashboard/user/profile') }}" class="dropdown-item notify-item">
-                                    <i class="fe-user"></i>
-                                    <span>Profile</span>
-                                </a>
-                                <div class="dropdown-divider"></div> --}}
 
                                 <a href="#" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fe-log-out"></i>
@@ -84,7 +79,7 @@
                             <!-- End mobile menu toggle-->
                         </li>
                         <li>
-                            <a href="{{ url('/') }}" target="_blank" class="nav-link">
+                            <a href="{{ $settings->site_address ?? 'https://gotravpapua.com' }}" target="_blank" class="nav-link">
                                 <i class="fe-globe"></i> View Site</a>
                         </li>
                         @if (Auth::user()->hasRole('administrator'))
