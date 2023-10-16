@@ -29,7 +29,7 @@ Route::prefix('v1')->middleware(['api'])->group(function () {
     Route::get('/tour-events/{slug}/detail', [TourEventsController::class, 'show']);
 
     // messages
-    Route::post('/messages', [MessagesController::class, 'index']);
+    Route::get('/messages', [MessagesController::class, 'index']);
     Route::post('/messages/store', [MessagesController::class, 'store']);
 
     // sliders
