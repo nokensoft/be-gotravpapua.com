@@ -18,7 +18,7 @@ class MessagesController extends Controller
         //     'data'=> TourMessages::orderByDesc('created_at')->get(),
         // ]);
 
-        $data = TourMessages::get();
+        $data = TourMessages::paginate();
 
         return response()->json([
             'status' => true,
