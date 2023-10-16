@@ -18,7 +18,7 @@ class MessagesController extends Controller
         //     'data'=> TourMessages::orderByDesc('created_at')->get(),
         // ]);
 
-        $data = TourMessages::all();
+        $data = TourMessages::paginate();
 
         return response()->json([
             'status' => true,
@@ -31,29 +31,35 @@ class MessagesController extends Controller
     {
         $validasi = Validator::make($request->all(), [
             'name'     => 'required',
+            'email'     => 'required',
+            'phone'     => 'required',
             'message'  => 'required'
         ]);
 
         if($validasi->fails()){
             return response()->json([
                 'status' => false,
+                'email'=> $validasi->errors(),
+                'phone'=> $validasi->errors(),
                 'message'=> $validasi->errors(),
                 'data' => null
             ]);
         }else{
             $post   = new TourMessages;
             $post->name    = $request->name;
+            $post->email    = $request->email;
+            $post->phone    = $request->phone;
             $post->message      = $request->message;
 
             if($post->save()){
                 return response()->json([
                     'status'=> true,
-                    'message'=>'Data Message Add Success'
+                    'message'=>'Data has been send'
                 ]);
             }else{
                 return response()->json([
                     'status'=> false,
-                    'message'=>'Data Message Add Failed'
+                    'message'=>'Failed'
                 ]);
             }
         }
