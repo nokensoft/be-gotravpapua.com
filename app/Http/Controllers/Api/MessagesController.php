@@ -12,10 +12,18 @@ class MessagesController extends Controller
     public function index()
     {
 
+        // return response()->json([
+        //     'status'=>true,
+        //     'message'=>'Data Loaded',
+        //     'data'=> TourMessages::orderByDesc('created_at')->get(),
+        // ]);
+
+        $data = TourMessages::get();
+
         return response()->json([
-            'status'=>true,
-            'message'=>'Data Loaded',
-            'data'=> TourMessages::orderByDesc('created_at')->get(),
+            'status' => true,
+            'message' => 'Success',
+            'data' => $data
         ]);
     }
 
