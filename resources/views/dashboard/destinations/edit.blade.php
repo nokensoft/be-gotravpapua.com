@@ -35,8 +35,8 @@
 
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="description">Description / Sub Title</label>
-                            <textarea id="description" name="description" rows="3" class="form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->description ?? '' !!}</textarea>
+                            <label for="ckeditor">Description / Sub Title</label>
+                            <textarea id="ckeditor" name="description" rows="3" class="form-control rounded-0" placeholder="write some description in one or two sentences">{!! $data->description ?? '' !!}</textarea>
 
                             @if ($errors->has('description'))
                             <span class="text-danger" role="alert">
@@ -119,7 +119,7 @@
                             <i class="fa-solid fa-times-square"></i> Cancle
                         </a>
                         <!-- input item END -->
-                        
+
                     </div>
                 </div>
 
@@ -137,11 +137,17 @@
 @endsection
 
 @push('script-footer')
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+{{-- <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script> --}}
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+    var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+    CKEDITOR.replace('ckeditor', options);
     CKEDITOR.config.height='400px';
 
     $(document).ready(function (e) {

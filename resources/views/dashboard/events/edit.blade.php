@@ -118,7 +118,7 @@
                                 <i class="fa-solid fa-times-square"></i> Cancle
                             </a>
                             <!-- input item END -->
-                            
+
                         </div>
                     </div>
 
@@ -136,11 +136,16 @@
 @endsection
 
 @push('script-footer')
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+    var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+    CKEDITOR.replace('body', options);
     CKEDITOR.config.height='400px';
 
     $(document).ready(function (e) {
