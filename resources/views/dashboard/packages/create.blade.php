@@ -47,8 +47,8 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="description">Body</label>
-                                <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
+                                <label for="">Body</label>
+                                <textarea id="my-editor" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
 
                                 @if ($errors->has('body'))
                                 <span class="text-danger" role="alert">
@@ -111,7 +111,7 @@
                                 <i class="fa-solid fa-times-square"></i> Cancle
                             </a>
                             <!-- input item END -->
-                            
+
                         </div>
                     </div>
 
@@ -129,12 +129,18 @@
 @endsection
 
 @push('script-footer')
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+    var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+    CKEDITOR.replace('my-editor', options);
     CKEDITOR.config.height='400px';
+
 
     $(document).ready(function (e) {
         $('#gambar').change(function(){
