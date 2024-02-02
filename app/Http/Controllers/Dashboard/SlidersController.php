@@ -100,12 +100,15 @@ class SlidersController extends Controller
                 $data->slug = Str::slug($data->title);
 
                 $data->description = $request->description;
+                $data->button_text = $request->button_text;
+                $data->button_link = $request->button_link;
+                $data->description = $request->description;
                 $data->status = $request->status;
 
                 $data->user_id = Auth::user()->id;
 
                 if ($request->picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug . '-' . time() . '.' . $request->picture->extension();
                     $path = public_path('images/tour_sliders');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
@@ -118,7 +121,6 @@ class SlidersController extends Controller
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/sliders/' . $data->id . '/show');
-
             } catch (\Throwable $th) {
 
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -167,12 +169,14 @@ class SlidersController extends Controller
                 $data->slug = Str::slug($data->title);
 
                 $data->description = $request->description;
+                $data->button_text = $request->button_text;
+                $data->button_link = $request->button_link;
                 $data->status = $request->status;
 
                 $data->user_id = Auth::user()->id;
 
                 if ($request->picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
+                    $pictureName = $data->slug . '-' . time() . '.' . $request->picture->extension();
                     $path = public_path('images/tour_sliders');
                     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
                         unlink($path . '/' . $data->picture);
@@ -186,7 +190,6 @@ class SlidersController extends Controller
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
                 return redirect('dashboard/sliders/' . $data->id . '/show');
-
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
@@ -227,5 +230,4 @@ class SlidersController extends Controller
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
         return redirect()->back();
     }
-
 }

@@ -25,7 +25,11 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('picture')->nullable();
 
-            $table->enum('status',['Publish','Draft']);
+            $table->text('button_text')->nullable();
+            $table->text('button_link')->nullable();
+
+
+            $table->enum('status', ['Publish', 'Draft']);
 
             $table->softDeletes();
             $table->timestamps();
