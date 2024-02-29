@@ -5,7 +5,10 @@
 
     <title> {{ $settings->site_title }} </title>
 
-    <!-- META TAGS -->
+    {{-- no index tags --}}
+    <meta name="robots" content="noindex" />
+
+    {{-- <!-- META TAGS -->
     {!! $settings->meta_tags ?? '' !!}
 
     <!-- HTML METAS -->
@@ -15,7 +18,7 @@
     <meta property="og:description" content="{{ $settings->meta_description }}" />
     <meta property="og:site_name" content="{{ $settings->site_title }}" />
     <meta property="og:image" content="{{ asset('images/settings' . $settings->logo) }}" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
 
     <!-- FAVICON -->
     <link rel="apple-touch-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
