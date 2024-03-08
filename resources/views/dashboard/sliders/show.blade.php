@@ -51,12 +51,12 @@
             <div class="card">
                 <div class="card-body">
 
-                    <div class="p-2 px-3 border-bottom">
+                    {{-- <div class="p-2 px-3 border-bottom">
                         <a href="{{ $settings->site_address . 'tour-' . Request::segment(2) . '/' . $data->slug ?? 'https://gotravpapua.com' }}"
                             class="btn btn-sm btn-dark rounded-0" target="_blank">
                             <i class="fa-solid fa-eye"></i> Public view
                         </a>
-                    </div>
+                    </div> --}}
                     <!-- input item END -->
 
                     <div class="p-2 px-3 border-bottom">
